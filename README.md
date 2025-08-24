@@ -231,10 +231,6 @@ poetry run make docs
 
 View documentation at `docs/_build/html/index.html`.
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## Contributing
 
 See CONTRIBUTING.md for contribution guidelines.
