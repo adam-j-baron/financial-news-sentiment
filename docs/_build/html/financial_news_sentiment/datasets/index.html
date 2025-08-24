@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>financial_news_sentiment.datasets API documentation</title>
+<meta name="description" content="Dataset loaders for sentiment analysis.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>financial_news_sentiment.datasets</code></h1>
+</header>
+<section id="section-intro">
+<p>Dataset loaders for sentiment analysis.</p>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="financial_news_sentiment.datasets.base" href="base.html">financial_news_sentiment.datasets.base</a></code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for dataset loaders.</p></div>
+</dd>
+<dt><code class="name"><a title="financial_news_sentiment.datasets.financial_phrasebank" href="financial_phrasebank.html">financial_news_sentiment.datasets.financial_phrasebank</a></code></dt>
+<dd>
+<div class="desc"><p>Loader for the Financial PhraseBank dataset.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="financial_news_sentiment.datasets.BaseDatasetLoader"><code class="flex name class">
+<span>class <span class="ident">BaseDatasetLoader</span></span>
+<span>(</span><span>name: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseDatasetLoader(ABC):
+    &#34;&#34;&#34;Abstract base class for dataset loaders.
+
+    This class defines the interface for loading sentiment analysis datasets.
+    Each dataset loader must implement the load method and provide functionality
+    for loading and preprocessing the data.
+
+    Example:
+        ```python
+        class MyDatasetLoader(BaseDatasetLoader):
+            def __init__(self, name: str, file_path: Path):
+                super().__init__(name)
+                self.file_path = file_path
+
+            def load(self, max_samples: Optional[int] = None) -&gt; Tuple[List[str], List[int]]:
+                texts = [&#34;Sample text 1&#34;, &#34;Sample text 2&#34;]
+                labels = [1, 0]  # 0=negative, 1=neutral, 2=positive
+                return texts, labels
+        ```
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str) -&gt; None:
+        &#34;&#34;&#34;Initialize the dataset loader.
+
+        Args:
+            name: Name of the dataset
+        &#34;&#34;&#34;
+        self.name = name
+
+    @abstractmethod
+    def load(self, max_samples: Optional[int] = None) -&gt; Tuple[List[str], List[int]]:
+        &#34;&#34;&#34;Load the dataset.
+
+        Args:
+            max_samples: Maximum number of samples to load.
+                      If None, load the entire dataset.
+
+        Returns:
+            Tuple[List[str], List[int]]: Tuple containing lists of texts and their labels
+                                    Labels should be integers: 0=negative, 1=neutral, 2=positive
+
+        Raises:
+            DatasetError: If there is an error loading the dataset
+        &#34;&#34;&#34;
+        pass
+
+    @property
+    @abstractmethod
+    def size(self) -&gt; int:
+        &#34;&#34;&#34;Get the total size of the dataset.
+
+        Returns:
+            int: Total number of samples in the dataset
+        &#34;&#34;&#34;
+        pass
+
+    @property
+    def label_map(self) -&gt; dict[str, int]:
+        &#34;&#34;&#34;Get the mapping from text labels to numeric labels.
+
+        Returns:
+            dict[str, int]: Mapping from text labels to numeric labels
+        &#34;&#34;&#34;
+        return {&#34;negative&#34;: 0, &#34;neutral&#34;: 1, &#34;positive&#34;: 2}
+
+    @property
+    def id_to_label(self) -&gt; dict[int, str]:
+        &#34;&#34;&#34;Get the mapping from numeric labels to text labels.
+
+        Returns:
+            dict[int, str]: Mapping from numeric labels to text labels
+        &#34;&#34;&#34;
+        return {v: k for k, v in self.label_map.items()}
+
+    def __str__(self) -&gt; str:
+        &#34;&#34;&#34;Get string representation of the dataset loader.
+
+        Returns:
+            str: Dataset name
+        &#34;&#34;&#34;
+        return self.name</code></pre>
+</details>
+<div class="desc"><p>Abstract base class for dataset loaders.</p>
+<p>This class defines the interface for loading sentiment analysis datasets.
+Each dataset loader must implement the load method and provide functionality
+for loading and preprocessing the data.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">class MyDatasetLoader(BaseDatasetLoader):
+    def __init__(self, name: str, file_path: Path):
+        super().__init__(name)
+        self.file_path = file_path
+
+    def load(self, max_samples: Optional[int] = None) -&gt; Tuple[List[str], List[int]]:
+        texts = [&quot;Sample text 1&quot;, &quot;Sample text 2&quot;]
+        labels = [1, 0]  # 0=negative, 1=neutral, 2=positive
+        return texts, labels
+</code></pre>
+<p>Initialize the dataset loader.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>Name of the dataset</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="financial_news_sentiment.datasets.financial_phrasebank.FinancialPhraseBankLoader" href="financial_phrasebank.html#financial_news_sentiment.datasets.financial_phrasebank.FinancialPhraseBankLoader">FinancialPhraseBankLoader</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="financial_news_sentiment.datasets.BaseDatasetLoader.id_to_label"><code class="name">prop <span class="ident">id_to_label</span> : dict[int, str]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def id_to_label(self) -&gt; dict[int, str]:
+    &#34;&#34;&#34;Get the mapping from numeric labels to text labels.
+
+    Returns:
+        dict[int, str]: Mapping from numeric labels to text labels
+    &#34;&#34;&#34;
+    return {v: k for k, v in self.label_map.items()}</code></pre>
+</details>
+<div class="desc"><p>Get the mapping from numeric labels to text labels.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict[int, str]</code></dt>
+<dd>Mapping from numeric labels to text labels</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.datasets.BaseDatasetLoader.label_map"><code class="name">prop <span class="ident">label_map</span> : dict[str, int]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def label_map(self) -&gt; dict[str, int]:
+    &#34;&#34;&#34;Get the mapping from text labels to numeric labels.
+
+    Returns:
+        dict[str, int]: Mapping from text labels to numeric labels
+    &#34;&#34;&#34;
+    return {&#34;negative&#34;: 0, &#34;neutral&#34;: 1, &#34;positive&#34;: 2}</code></pre>
+</details>
+<div class="desc"><p>Get the mapping from text labels to numeric labels.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict[str, int]</code></dt>
+<dd>Mapping from text labels to numeric labels</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.datasets.BaseDatasetLoader.size"><code class="name">prop <span class="ident">size</span> : int</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+@abstractmethod
+def size(self) -&gt; int:
+    &#34;&#34;&#34;Get the total size of the dataset.
+
+    Returns:
+        int: Total number of samples in the dataset
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<div class="desc"><p>Get the total size of the dataset.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Total number of samples in the dataset</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="financial_news_sentiment.datasets.BaseDatasetLoader.load"><code class="name flex">
+<span>def <span class="ident">load</span></span>(<span>self, max_samples: int | None = None) ‑> Tuple[List[str], List[int]]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def load(self, max_samples: Optional[int] = None) -&gt; Tuple[List[str], List[int]]:
+    &#34;&#34;&#34;Load the dataset.
+
+    Args:
+        max_samples: Maximum number of samples to load.
+                  If None, load the entire dataset.
+
+    Returns:
+        Tuple[List[str], List[int]]: Tuple containing lists of texts and their labels
+                                Labels should be integers: 0=negative, 1=neutral, 2=positive
+
+    Raises:
+        DatasetError: If there is an error loading the dataset
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<div class="desc"><p>Load the dataset.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>max_samples</code></strong></dt>
+<dd>Maximum number of samples to load.
+If None, load the entire dataset.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Tuple[List[str], List[int]]</code></dt>
+<dd>Tuple containing lists of texts and their labels
+Labels should be integers: 0=negative, 1=neutral, 2=positive</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>DatasetError</code></dt>
+<dd>If there is an error loading the dataset</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.datasets.FinancialPhraseBankLoader"><code class="flex name class">
+<span>class <span class="ident">FinancialPhraseBankLoader</span></span>
+<span>(</span><span>name: str = 'FinancialPhraseBank',<br>url: str = 'https://huggingface.co/datasets/takala/financial_phrasebank/resolve/main/data/FinancialPhraseBank-v1.0.zip',<br>file_path: str = 'FinancialPhraseBank-v1.0/Sentences_AllAgree.txt',<br>encoding: str = 'ISO-8859-1',<br>shuffle_seed: int | None = None,<br>cache_dir: pathlib.Path | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FinancialPhraseBankLoader(BaseDatasetLoader):
+    &#34;&#34;&#34;Loader for the Financial PhraseBank dataset.&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        name: str = &#34;FinancialPhraseBank&#34;,
+        url: str = &#34;https://huggingface.co/datasets/takala/financial_phrasebank/resolve/main/data/FinancialPhraseBank-v1.0.zip&#34;,
+        file_path: str = &#34;FinancialPhraseBank-v1.0/Sentences_AllAgree.txt&#34;,
+        encoding: str = &#34;ISO-8859-1&#34;,
+        shuffle_seed: Optional[int] = None,
+        cache_dir: Optional[Path] = None,
+    ) -&gt; None:
+        &#34;&#34;&#34;Initialize the Financial PhraseBank dataset loader.
+
+        Args:
+            name: Name of the dataset
+            url: URL to download the dataset from
+            file_path: Path to the file within the ZIP archive
+            encoding: Character encoding of the file
+            shuffle_seed: Random seed for shuffling the dataset
+            cache_dir: Directory to cache downloaded files
+
+        Raises:
+            DatasetError: If there is an error initializing the loader
+        &#34;&#34;&#34;
+        super().__init__(name)
+        self.url = url
+        self.file_path = file_path
+        self.encoding = encoding
+        self.shuffle_seed = shuffle_seed
+        self.cache_dir = cache_dir or Path(&#34;.cache/datasets&#34;)
+        self._size: Optional[int] = None
+        self._data: Optional[Tuple[List[str], List[int]]] = None
+
+    def _download_dataset(self) -&gt; bytes:
+        &#34;&#34;&#34;Download the dataset from the URL.
+
+        Returns:
+            bytes: Raw ZIP file content
+
+        Raises:
+            DatasetError: If there is an error downloading the dataset
+        &#34;&#34;&#34;
+        try:
+            # Ensure cache directory exists
+            self.cache_dir.mkdir(parents=True, exist_ok=True)
+            cache_path = self.cache_dir / &#34;financial_phrasebank.zip&#34;
+
+            # Check if cached file exists
+            if cache_path.exists():
+                return cache_path.read_bytes()
+
+            # Download file if not cached
+            with httpx.Client(timeout=30.0, follow_redirects=True) as client:
+                response = client.get(self.url)
+                response.raise_for_status()
+
+            # Cache the downloaded file
+            cache_path.write_bytes(response.content)
+            return response.content
+        except Exception as e:
+            raise DatasetError(
+                &#34;Failed to download Financial PhraseBank dataset&#34;,
+                component=&#34;financial_phrasebank&#34;,
+                details=str(e),
+            )
+
+    def _parse_file(self, content: str) -&gt; Tuple[List[str], List[int]]:
+        &#34;&#34;&#34;Parse the dataset file content.
+
+        Args:
+            content: Raw file content as string
+
+        Returns:
+            Tuple[List[str], List[int]]: Tuple of texts and labels
+
+        Raises:
+            DatasetError: If there is an error parsing the file
+        &#34;&#34;&#34;
+        try:
+            data_tuples = []
+            lines = content.splitlines()
+
+            for line in lines:
+                if &#34;@&#34; in line:
+                    sentence, label_str = line.rsplit(&#34;@&#34;, 1)
+                    sentence = sentence.strip()
+                    label_str = label_str.strip()
+                    if label_str in self.label_map:
+                        data_tuples.append((sentence, self.label_map[label_str]))
+
+            if not data_tuples:
+                raise DatasetError(
+                    &#34;No valid data found in Financial PhraseBank dataset&#34;,
+                    component=&#34;financial_phrasebank&#34;,
+                )
+
+            # Shuffle data if seed is provided
+            if self.shuffle_seed is not None:
+                random.seed(self.shuffle_seed)
+                random.shuffle(data_tuples)
+
+            # Split into texts and labels
+            texts = [t[0] for t in data_tuples]
+            labels = [t[1] for t in data_tuples]
+
+            return texts, labels
+        except Exception as e:
+            raise DatasetError(
+                &#34;Failed to parse Financial PhraseBank dataset&#34;,
+                component=&#34;financial_phrasebank&#34;,
+                details=str(e),
+            )
+
+    def load(self, max_samples: Optional[int] = None) -&gt; Tuple[List[str], List[int]]:
+        &#34;&#34;&#34;Load the Financial PhraseBank dataset.
+
+        Args:
+            max_samples: Maximum number of samples to load
+
+        Returns:
+            Tuple[List[str], List[int]]: Tuple containing lists of texts and their labels
+
+        Raises:
+            DatasetError: If there is an error loading the dataset
+        &#34;&#34;&#34;
+        try:
+            # Return cached data if available
+            if self._data is not None:
+                texts, labels = self._data
+                if max_samples:
+                    return texts[:max_samples], labels[:max_samples]
+                return texts, labels
+
+            # Download and extract the dataset
+            zip_content = self._download_dataset()
+            zip_file = zipfile.ZipFile(io.BytesIO(zip_content))
+
+            # Read and parse the file
+            with zip_file.open(self.file_path) as f:
+                content = f.read().decode(self.encoding)
+
+            # Parse the content
+            texts, labels = self._parse_file(content)
+
+            # Cache the parsed data
+            self._data = (texts, labels)
+            self._size = len(texts)
+
+            # Return requested number of samples
+            if max_samples:
+                return texts[:max_samples], labels[:max_samples]
+            return texts, labels
+        except Exception as e:
+            raise DatasetError(
+                &#34;Failed to load Financial PhraseBank dataset&#34;,
+                component=&#34;financial_phrasebank&#34;,
+                details=str(e),
+            )
+
+    @property
+    def size(self) -&gt; int:
+        &#34;&#34;&#34;Get the total size of the dataset.
+
+        Returns:
+            int: Total number of samples in the dataset
+
+        Raises:
+            DatasetError: If the dataset hasn&#39;t been loaded yet
+        &#34;&#34;&#34;
+        if self._size is None:
+            self.load()  # This will set self._size
+        if self._size is None:
+            raise DatasetError(
+                &#34;Dataset size is not set after loading&#34;,
+                component=&#34;financial_phrasebank&#34;,
+            )
+        return self._size</code></pre>
+</details>
+<div class="desc"><p>Loader for the Financial PhraseBank dataset.</p>
+<p>Initialize the Financial PhraseBank dataset loader.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>Name of the dataset</dd>
+<dt><strong><code>url</code></strong></dt>
+<dd>URL to download the dataset from</dd>
+<dt><strong><code>file_path</code></strong></dt>
+<dd>Path to the file within the ZIP archive</dd>
+<dt><strong><code>encoding</code></strong></dt>
+<dd>Character encoding of the file</dd>
+<dt><strong><code>shuffle_seed</code></strong></dt>
+<dd>Random seed for shuffling the dataset</dd>
+<dt><strong><code>cache_dir</code></strong></dt>
+<dd>Directory to cache downloaded files</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>DatasetError</code></dt>
+<dd>If there is an error initializing the loader</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="financial_news_sentiment.datasets.base.BaseDatasetLoader" href="base.html#financial_news_sentiment.datasets.base.BaseDatasetLoader">BaseDatasetLoader</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="financial_news_sentiment.datasets.FinancialPhraseBankLoader.size"><code class="name">prop <span class="ident">size</span> : int</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def size(self) -&gt; int:
+    &#34;&#34;&#34;Get the total size of the dataset.
+
+    Returns:
+        int: Total number of samples in the dataset
+
+    Raises:
+        DatasetError: If the dataset hasn&#39;t been loaded yet
+    &#34;&#34;&#34;
+    if self._size is None:
+        self.load()  # This will set self._size
+    if self._size is None:
+        raise DatasetError(
+            &#34;Dataset size is not set after loading&#34;,
+            component=&#34;financial_phrasebank&#34;,
+        )
+    return self._size</code></pre>
+</details>
+<div class="desc"><p>Get the total size of the dataset.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Total number of samples in the dataset</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>DatasetError</code></dt>
+<dd>If the dataset hasn't been loaded yet</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="financial_news_sentiment.datasets.FinancialPhraseBankLoader.load"><code class="name flex">
+<span>def <span class="ident">load</span></span>(<span>self, max_samples: int | None = None) ‑> Tuple[List[str], List[int]]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load(self, max_samples: Optional[int] = None) -&gt; Tuple[List[str], List[int]]:
+    &#34;&#34;&#34;Load the Financial PhraseBank dataset.
+
+    Args:
+        max_samples: Maximum number of samples to load
+
+    Returns:
+        Tuple[List[str], List[int]]: Tuple containing lists of texts and their labels
+
+    Raises:
+        DatasetError: If there is an error loading the dataset
+    &#34;&#34;&#34;
+    try:
+        # Return cached data if available
+        if self._data is not None:
+            texts, labels = self._data
+            if max_samples:
+                return texts[:max_samples], labels[:max_samples]
+            return texts, labels
+
+        # Download and extract the dataset
+        zip_content = self._download_dataset()
+        zip_file = zipfile.ZipFile(io.BytesIO(zip_content))
+
+        # Read and parse the file
+        with zip_file.open(self.file_path) as f:
+            content = f.read().decode(self.encoding)
+
+        # Parse the content
+        texts, labels = self._parse_file(content)
+
+        # Cache the parsed data
+        self._data = (texts, labels)
+        self._size = len(texts)
+
+        # Return requested number of samples
+        if max_samples:
+            return texts[:max_samples], labels[:max_samples]
+        return texts, labels
+    except Exception as e:
+        raise DatasetError(
+            &#34;Failed to load Financial PhraseBank dataset&#34;,
+            component=&#34;financial_phrasebank&#34;,
+            details=str(e),
+        )</code></pre>
+</details>
+<div class="desc"><p>Load the Financial PhraseBank dataset.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>max_samples</code></strong></dt>
+<dd>Maximum number of samples to load</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Tuple[List[str], List[int]]</code></dt>
+<dd>Tuple containing lists of texts and their labels</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>DatasetError</code></dt>
+<dd>If there is an error loading the dataset</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="financial_news_sentiment.datasets.base.BaseDatasetLoader" href="base.html#financial_news_sentiment.datasets.base.BaseDatasetLoader">BaseDatasetLoader</a></b></code>:
+<ul class="hlist">
+<li><code><a title="financial_news_sentiment.datasets.base.BaseDatasetLoader.id_to_label" href="base.html#financial_news_sentiment.datasets.base.BaseDatasetLoader.id_to_label">id_to_label</a></code></li>
+<li><code><a title="financial_news_sentiment.datasets.base.BaseDatasetLoader.label_map" href="base.html#financial_news_sentiment.datasets.base.BaseDatasetLoader.label_map">label_map</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="financial_news_sentiment" href="../index.html">financial_news_sentiment</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="financial_news_sentiment.datasets.base" href="base.html">financial_news_sentiment.datasets.base</a></code></li>
+<li><code><a title="financial_news_sentiment.datasets.financial_phrasebank" href="financial_phrasebank.html">financial_news_sentiment.datasets.financial_phrasebank</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="financial_news_sentiment.datasets.BaseDatasetLoader" href="#financial_news_sentiment.datasets.BaseDatasetLoader">BaseDatasetLoader</a></code></h4>
+<ul class="">
+<li><code><a title="financial_news_sentiment.datasets.BaseDatasetLoader.id_to_label" href="#financial_news_sentiment.datasets.BaseDatasetLoader.id_to_label">id_to_label</a></code></li>
+<li><code><a title="financial_news_sentiment.datasets.BaseDatasetLoader.label_map" href="#financial_news_sentiment.datasets.BaseDatasetLoader.label_map">label_map</a></code></li>
+<li><code><a title="financial_news_sentiment.datasets.BaseDatasetLoader.load" href="#financial_news_sentiment.datasets.BaseDatasetLoader.load">load</a></code></li>
+<li><code><a title="financial_news_sentiment.datasets.BaseDatasetLoader.size" href="#financial_news_sentiment.datasets.BaseDatasetLoader.size">size</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.datasets.FinancialPhraseBankLoader" href="#financial_news_sentiment.datasets.FinancialPhraseBankLoader">FinancialPhraseBankLoader</a></code></h4>
+<ul class="">
+<li><code><a title="financial_news_sentiment.datasets.FinancialPhraseBankLoader.load" href="#financial_news_sentiment.datasets.FinancialPhraseBankLoader.load">load</a></code></li>
+<li><code><a title="financial_news_sentiment.datasets.FinancialPhraseBankLoader.size" href="#financial_news_sentiment.datasets.FinancialPhraseBankLoader.size">size</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

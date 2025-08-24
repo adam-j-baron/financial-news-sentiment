@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>financial_news_sentiment.config API documentation</title>
+<meta name="description" content="Configuration management for the financial news sentiment analysis system.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>financial_news_sentiment.config</code></h1>
+</header>
+<section id="section-intro">
+<p>Configuration management for the financial news sentiment analysis system.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="financial_news_sentiment.config.load_config"><code class="name flex">
+<span>def <span class="ident">load_config</span></span>(<span>config_path: str | pathlib.Path | None = None) ‑> <a title="financial_news_sentiment.config.AppConfig" href="#financial_news_sentiment.config.AppConfig">AppConfig</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_config(config_path: Optional[Union[str, Path]] = None) -&gt; AppConfig:
+    &#34;&#34;&#34;Load application configuration.
+
+    Args:
+        config_path: Path to the configuration file. If None, uses default locations.
+
+    Returns:
+        AppConfig: Loaded and validated configuration
+
+    Raises:
+        ConfigurationError: If the configuration cannot be loaded
+    &#34;&#34;&#34;
+    if config_path is None:
+        # Try common configuration locations
+        locations = [
+            Path(&#34;config.yaml&#34;),
+            Path(&#34;config/config.yaml&#34;),
+            Path.home() / &#34;.config&#34; / &#34;financial-news-sentiment&#34; / &#34;config.yaml&#34;,
+        ]
+        for path in locations:
+            if path.is_file():
+                config_path = path
+                break
+        else:
+            raise ConfigurationError(
+                &#34;No configuration file found in default locations&#34;,
+                component=&#34;config&#34;,
+                details={&#34;searched_locations&#34;: [str(p) for p in locations]},
+            )
+
+    return AppConfig.from_yaml(config_path)</code></pre>
+</details>
+<div class="desc"><p>Load application configuration.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>config_path</code></strong></dt>
+<dd>Path to the configuration file. If None, uses default locations.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="financial_news_sentiment.config.AppConfig" href="#financial_news_sentiment.config.AppConfig">AppConfig</a></code></dt>
+<dd>Loaded and validated configuration</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ConfigurationError</code></dt>
+<dd>If the configuration cannot be loaded</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="financial_news_sentiment.config.APIConfig"><code class="flex name class">
+<span>class <span class="ident">APIConfig</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class APIConfig(BaseModel):
+    &#34;&#34;&#34;Configuration for the API server.&#34;&#34;&#34;
+
+    host: str = Field(default=&#34;0.0.0.0&#34;)
+    port: PositiveInt = Field(default=8000)
+    workers: PositiveInt = Field(default=4)
+    timeout: PositiveInt = Field(default=60)
+    cors_origins: List[str] = Field(default=[&#34;*&#34;])</code></pre>
+</details>
+<div class="desc"><p>Configuration for the API server.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.APIConfig.cors_origins"><code class="name">var <span class="ident">cors_origins</span> : List[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.APIConfig.host"><code class="name">var <span class="ident">host</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.APIConfig.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.APIConfig.port"><code class="name">var <span class="ident">port</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.APIConfig.timeout"><code class="name">var <span class="ident">timeout</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.APIConfig.workers"><code class="name">var <span class="ident">workers</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig"><code class="flex name class">
+<span>class <span class="ident">AppConfig</span></span>
+<span>(</span><span>**values: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AppConfig(BaseSettings):
+    &#34;&#34;&#34;Main application configuration.&#34;&#34;&#34;
+
+    model_config = SettingsConfigDict(env_prefix=&#34;FINS_&#34;, env_nested_delimiter=&#34;__&#34;)
+
+    app_name: str = &#34;financial-news-sentiment&#34;
+    app_version: str = &#34;0.1.0&#34;
+    environment: str = Field(
+        default=&#34;development&#34;, pattern=&#34;^(development|staging|production)$&#34;
+    )
+    log_level: str = Field(
+        default=&#34;INFO&#34;, pattern=&#34;^(DEBUG|INFO|WARNING|ERROR|CRITICAL)$&#34;
+    )
+    log_format: str = Field(default=&#34;json&#34;, pattern=&#34;^(json|text)$&#34;)
+
+    models: Dict[str, Union[ModelConfig, OllamaConfig]]
+    datasets: Dict[str, DatasetConfig]
+    evaluation: EvaluationConfig
+    live_data: Dict[str, LiveDataConfig]
+    cache: CacheConfig
+    api: APIConfig
+    security: SecurityConfig
+    monitoring: MonitoringConfig
+
+    @classmethod
+    def from_yaml(cls, path: Union[str, Path]) -&gt; &#34;AppConfig&#34;:
+        &#34;&#34;&#34;Load configuration from a YAML file.
+
+        Args:
+            path: Path to the YAML configuration file
+
+        Returns:
+            AppConfig: Loaded and validated configuration
+
+        Raises:
+            ConfigurationError: If the configuration file cannot be loaded or is invalid
+        &#34;&#34;&#34;
+        try:
+            with open(path, &#34;r&#34;) as f:
+                config_dict = yaml.safe_load(f)
+            return cls.model_validate(config_dict)
+        except Exception as e:
+            raise ConfigurationError(
+                f&#34;Failed to load configuration from {path}&#34;,
+                component=&#34;config&#34;,
+                details=str(e),
+            )
+
+    def get_model_config(self, model_name: str) -&gt; Union[ModelConfig, OllamaConfig]:
+        &#34;&#34;&#34;Get configuration for a specific model.
+
+        Args:
+            model_name: Name of the model
+
+        Returns:
+            Union[ModelConfig, OllamaConfig]: Model configuration
+
+        Raises:
+            ConfigurationError: If the model configuration is not found
+        &#34;&#34;&#34;
+        try:
+            return self.models[model_name]
+        except KeyError:
+            raise ConfigurationError(
+                f&#34;Configuration for model &#39;{model_name}&#39; not found&#34;,
+                component=&#34;config&#34;,
+            )
+
+    def get_dataset_config(self, dataset_name: str) -&gt; DatasetConfig:
+        &#34;&#34;&#34;Get configuration for a specific dataset.
+
+        Args:
+            dataset_name: Name of the dataset
+
+        Returns:
+            DatasetConfig: Dataset configuration
+
+        Raises:
+            ConfigurationError: If the dataset configuration is not found
+        &#34;&#34;&#34;
+        try:
+            return self.datasets[dataset_name]
+        except KeyError:
+            raise ConfigurationError(
+                f&#34;Configuration for dataset &#39;{dataset_name}&#39; not found&#34;,
+                component=&#34;config&#34;,
+            )</code></pre>
+</details>
+<div class="desc"><p>Main application configuration.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic_settings.main.BaseSettings</li>
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.AppConfig.api"><code class="name">var <span class="ident">api</span> : <a title="financial_news_sentiment.config.APIConfig" href="#financial_news_sentiment.config.APIConfig">APIConfig</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.app_name"><code class="name">var <span class="ident">app_name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.app_version"><code class="name">var <span class="ident">app_version</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.cache"><code class="name">var <span class="ident">cache</span> : <a title="financial_news_sentiment.config.CacheConfig" href="#financial_news_sentiment.config.CacheConfig">CacheConfig</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.datasets"><code class="name">var <span class="ident">datasets</span> : Dict[str, <a title="financial_news_sentiment.config.DatasetConfig" href="#financial_news_sentiment.config.DatasetConfig">DatasetConfig</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.environment"><code class="name">var <span class="ident">environment</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.evaluation"><code class="name">var <span class="ident">evaluation</span> : <a title="financial_news_sentiment.config.EvaluationConfig" href="#financial_news_sentiment.config.EvaluationConfig">EvaluationConfig</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.live_data"><code class="name">var <span class="ident">live_data</span> : Dict[str, <a title="financial_news_sentiment.config.LiveDataConfig" href="#financial_news_sentiment.config.LiveDataConfig">LiveDataConfig</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.log_format"><code class="name">var <span class="ident">log_format</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.log_level"><code class="name">var <span class="ident">log_level</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.model_config"><code class="name">var <span class="ident">model_config</span> : ClassVar[pydantic_settings.main.SettingsConfigDict]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.models"><code class="name">var <span class="ident">models</span> : Dict[str, <a title="financial_news_sentiment.config.ModelConfig" href="#financial_news_sentiment.config.ModelConfig">ModelConfig</a> | <a title="financial_news_sentiment.config.OllamaConfig" href="#financial_news_sentiment.config.OllamaConfig">OllamaConfig</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.monitoring"><code class="name">var <span class="ident">monitoring</span> : <a title="financial_news_sentiment.config.MonitoringConfig" href="#financial_news_sentiment.config.MonitoringConfig">MonitoringConfig</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.security"><code class="name">var <span class="ident">security</span> : <a title="financial_news_sentiment.config.SecurityConfig" href="#financial_news_sentiment.config.SecurityConfig">SecurityConfig</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="financial_news_sentiment.config.AppConfig.from_yaml"><code class="name flex">
+<span>def <span class="ident">from_yaml</span></span>(<span>path: str | pathlib.Path) ‑> <a title="financial_news_sentiment.config.AppConfig" href="#financial_news_sentiment.config.AppConfig">AppConfig</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Load configuration from a YAML file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong></dt>
+<dd>Path to the YAML configuration file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="financial_news_sentiment.config.AppConfig" href="#financial_news_sentiment.config.AppConfig">AppConfig</a></code></dt>
+<dd>Loaded and validated configuration</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ConfigurationError</code></dt>
+<dd>If the configuration file cannot be loaded or is invalid</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="financial_news_sentiment.config.AppConfig.get_dataset_config"><code class="name flex">
+<span>def <span class="ident">get_dataset_config</span></span>(<span>self, dataset_name: str) ‑> <a title="financial_news_sentiment.config.DatasetConfig" href="#financial_news_sentiment.config.DatasetConfig">DatasetConfig</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dataset_config(self, dataset_name: str) -&gt; DatasetConfig:
+    &#34;&#34;&#34;Get configuration for a specific dataset.
+
+    Args:
+        dataset_name: Name of the dataset
+
+    Returns:
+        DatasetConfig: Dataset configuration
+
+    Raises:
+        ConfigurationError: If the dataset configuration is not found
+    &#34;&#34;&#34;
+    try:
+        return self.datasets[dataset_name]
+    except KeyError:
+        raise ConfigurationError(
+            f&#34;Configuration for dataset &#39;{dataset_name}&#39; not found&#34;,
+            component=&#34;config&#34;,
+        )</code></pre>
+</details>
+<div class="desc"><p>Get configuration for a specific dataset.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dataset_name</code></strong></dt>
+<dd>Name of the dataset</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="financial_news_sentiment.config.DatasetConfig" href="#financial_news_sentiment.config.DatasetConfig">DatasetConfig</a></code></dt>
+<dd>Dataset configuration</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ConfigurationError</code></dt>
+<dd>If the dataset configuration is not found</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.config.AppConfig.get_model_config"><code class="name flex">
+<span>def <span class="ident">get_model_config</span></span>(<span>self, model_name: str) ‑> <a title="financial_news_sentiment.config.ModelConfig" href="#financial_news_sentiment.config.ModelConfig">ModelConfig</a> | <a title="financial_news_sentiment.config.OllamaConfig" href="#financial_news_sentiment.config.OllamaConfig">OllamaConfig</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_model_config(self, model_name: str) -&gt; Union[ModelConfig, OllamaConfig]:
+    &#34;&#34;&#34;Get configuration for a specific model.
+
+    Args:
+        model_name: Name of the model
+
+    Returns:
+        Union[ModelConfig, OllamaConfig]: Model configuration
+
+    Raises:
+        ConfigurationError: If the model configuration is not found
+    &#34;&#34;&#34;
+    try:
+        return self.models[model_name]
+    except KeyError:
+        raise ConfigurationError(
+            f&#34;Configuration for model &#39;{model_name}&#39; not found&#34;,
+            component=&#34;config&#34;,
+        )</code></pre>
+</details>
+<div class="desc"><p>Get configuration for a specific model.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>model_name</code></strong></dt>
+<dd>Name of the model</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Union[<a title="financial_news_sentiment.config.ModelConfig" href="#financial_news_sentiment.config.ModelConfig">ModelConfig</a>, <a title="financial_news_sentiment.config.OllamaConfig" href="#financial_news_sentiment.config.OllamaConfig">OllamaConfig</a>]</code></dt>
+<dd>Model configuration</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ConfigurationError</code></dt>
+<dd>If the model configuration is not found</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.config.CacheConfig"><code class="flex name class">
+<span>class <span class="ident">CacheConfig</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CacheConfig(BaseModel):
+    &#34;&#34;&#34;Configuration for the caching system.&#34;&#34;&#34;
+
+    enabled: bool = True
+    directory: Path = Field(default=Path(&#34;.cache&#34;))
+    max_size: str = Field(default=&#34;1GB&#34;)
+    ttl: PositiveInt = Field(default=86400)</code></pre>
+</details>
+<div class="desc"><p>Configuration for the caching system.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.CacheConfig.directory"><code class="name">var <span class="ident">directory</span> : pathlib.Path</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.CacheConfig.enabled"><code class="name">var <span class="ident">enabled</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.CacheConfig.max_size"><code class="name">var <span class="ident">max_size</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.CacheConfig.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.CacheConfig.ttl"><code class="name">var <span class="ident">ttl</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.config.DatasetConfig"><code class="flex name class">
+<span>class <span class="ident">DatasetConfig</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DatasetConfig(BaseModel):
+    &#34;&#34;&#34;Configuration for a dataset.&#34;&#34;&#34;
+
+    url: HttpUrl
+    file_path: Path
+    encoding: str = Field(default=&#34;utf-8&#34;)
+    cache_dir: Path = Field(default=Path(&#34;.cache/datasets&#34;))
+    shuffle_seed: Optional[int] = Field(default=None)</code></pre>
+</details>
+<div class="desc"><p>Configuration for a dataset.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.DatasetConfig.cache_dir"><code class="name">var <span class="ident">cache_dir</span> : pathlib.Path</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.DatasetConfig.encoding"><code class="name">var <span class="ident">encoding</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.DatasetConfig.file_path"><code class="name">var <span class="ident">file_path</span> : pathlib.Path</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.DatasetConfig.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.DatasetConfig.shuffle_seed"><code class="name">var <span class="ident">shuffle_seed</span> : int | None</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.DatasetConfig.url"><code class="name">var <span class="ident">url</span> : pydantic.networks.HttpUrl</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.config.EvaluationConfig"><code class="flex name class">
+<span>class <span class="ident">EvaluationConfig</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EvaluationConfig(BaseModel):
+    &#34;&#34;&#34;Configuration for model evaluation.&#34;&#34;&#34;
+
+    num_sentences: PositiveInt
+    metrics: List[str]
+    output_format: str = Field(default=&#34;text&#34;, pattern=&#34;^(text|json|csv)$&#34;)</code></pre>
+</details>
+<div class="desc"><p>Configuration for model evaluation.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.EvaluationConfig.metrics"><code class="name">var <span class="ident">metrics</span> : List[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.EvaluationConfig.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.EvaluationConfig.num_sentences"><code class="name">var <span class="ident">num_sentences</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.EvaluationConfig.output_format"><code class="name">var <span class="ident">output_format</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.config.LiveDataConfig"><code class="flex name class">
+<span>class <span class="ident">LiveDataConfig</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LiveDataConfig(BaseModel):
+    &#34;&#34;&#34;Configuration for live data sources.&#34;&#34;&#34;
+
+    timeout: PositiveFloat = Field(default=30.0)
+    max_retries: PositiveInt = Field(default=3)
+    default_num_articles: PositiveInt = Field(default=10)
+    cache_ttl: PositiveInt = Field(default=300)</code></pre>
+</details>
+<div class="desc"><p>Configuration for live data sources.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.LiveDataConfig.cache_ttl"><code class="name">var <span class="ident">cache_ttl</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.LiveDataConfig.default_num_articles"><code class="name">var <span class="ident">default_num_articles</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.LiveDataConfig.max_retries"><code class="name">var <span class="ident">max_retries</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.LiveDataConfig.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.LiveDataConfig.timeout"><code class="name">var <span class="ident">timeout</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.config.ModelConfig"><code class="flex name class">
+<span>class <span class="ident">ModelConfig</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ModelConfig(BaseModel):
+    &#34;&#34;&#34;Configuration for a machine learning model.&#34;&#34;&#34;
+
+    name: str
+    device: str = Field(default=&#34;auto&#34;, pattern=&#34;^(cpu|cuda|auto)$&#34;)
+    batch_size: PositiveInt = Field(
+        default=32, description=&#34;Batch size for model inference&#34;
+    )
+    cache_dir: Path = Field(default=Path(&#34;.cache/models&#34;))
+
+    @field_validator(&#34;device&#34;)
+    def validate_device(cls, v: str) -&gt; str:
+        &#34;&#34;&#34;Validate the device setting.&#34;&#34;&#34;
+        if v not in [&#34;cpu&#34;, &#34;cuda&#34;, &#34;auto&#34;]:
+            raise ValueError(&#34;Device must be one of: cpu, cuda, auto&#34;)
+        return v</code></pre>
+</details>
+<div class="desc"><p>Configuration for a machine learning model.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.ModelConfig.batch_size"><code class="name">var <span class="ident">batch_size</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.ModelConfig.cache_dir"><code class="name">var <span class="ident">cache_dir</span> : pathlib.Path</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.ModelConfig.device"><code class="name">var <span class="ident">device</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.ModelConfig.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.ModelConfig.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="financial_news_sentiment.config.ModelConfig.validate_device"><code class="name flex">
+<span>def <span class="ident">validate_device</span></span>(<span>v: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Validate the device setting.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.config.MonitoringConfig"><code class="flex name class">
+<span>class <span class="ident">MonitoringConfig</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MonitoringConfig(BaseModel):
+    &#34;&#34;&#34;Configuration for system monitoring.&#34;&#34;&#34;
+
+    enabled: bool = True
+    metrics_port: PositiveInt = Field(default=9090)
+    collect_performance_metrics: bool = True
+    prometheus_enabled: bool = False</code></pre>
+</details>
+<div class="desc"><p>Configuration for system monitoring.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.MonitoringConfig.collect_performance_metrics"><code class="name">var <span class="ident">collect_performance_metrics</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.MonitoringConfig.enabled"><code class="name">var <span class="ident">enabled</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.MonitoringConfig.metrics_port"><code class="name">var <span class="ident">metrics_port</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.MonitoringConfig.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.MonitoringConfig.prometheus_enabled"><code class="name">var <span class="ident">prometheus_enabled</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.config.OllamaConfig"><code class="flex name class">
+<span>class <span class="ident">OllamaConfig</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OllamaConfig(BaseModel):
+    &#34;&#34;&#34;Configuration for the Ollama API.&#34;&#34;&#34;
+
+    url: HttpUrl
+    model: str
+    system_prompt: str
+    timeout: PositiveFloat = Field(default=30.0, description=&#34;API timeout in seconds&#34;)
+    max_retries: PositiveInt = Field(default=3)</code></pre>
+</details>
+<div class="desc"><p>Configuration for the Ollama API.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.OllamaConfig.max_retries"><code class="name">var <span class="ident">max_retries</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.OllamaConfig.model"><code class="name">var <span class="ident">model</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.OllamaConfig.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.OllamaConfig.system_prompt"><code class="name">var <span class="ident">system_prompt</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.OllamaConfig.timeout"><code class="name">var <span class="ident">timeout</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.OllamaConfig.url"><code class="name">var <span class="ident">url</span> : pydantic.networks.HttpUrl</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.config.SecurityConfig"><code class="flex name class">
+<span>class <span class="ident">SecurityConfig</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SecurityConfig(BaseModel):
+    &#34;&#34;&#34;Security-related configuration.&#34;&#34;&#34;
+
+    ssl_verify: bool = True
+    input_validation: bool = True
+    max_content_length: str = Field(default=&#34;10MB&#34;)</code></pre>
+</details>
+<div class="desc"><p>Security-related configuration.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="financial_news_sentiment.config.SecurityConfig.input_validation"><code class="name">var <span class="ident">input_validation</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.SecurityConfig.max_content_length"><code class="name">var <span class="ident">max_content_length</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.SecurityConfig.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="financial_news_sentiment.config.SecurityConfig.ssl_verify"><code class="name">var <span class="ident">ssl_verify</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="financial_news_sentiment" href="index.html">financial_news_sentiment</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="financial_news_sentiment.config.load_config" href="#financial_news_sentiment.config.load_config">load_config</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="financial_news_sentiment.config.APIConfig" href="#financial_news_sentiment.config.APIConfig">APIConfig</a></code></h4>
+<ul class="two-column">
+<li><code><a title="financial_news_sentiment.config.APIConfig.cors_origins" href="#financial_news_sentiment.config.APIConfig.cors_origins">cors_origins</a></code></li>
+<li><code><a title="financial_news_sentiment.config.APIConfig.host" href="#financial_news_sentiment.config.APIConfig.host">host</a></code></li>
+<li><code><a title="financial_news_sentiment.config.APIConfig.model_config" href="#financial_news_sentiment.config.APIConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.APIConfig.port" href="#financial_news_sentiment.config.APIConfig.port">port</a></code></li>
+<li><code><a title="financial_news_sentiment.config.APIConfig.timeout" href="#financial_news_sentiment.config.APIConfig.timeout">timeout</a></code></li>
+<li><code><a title="financial_news_sentiment.config.APIConfig.workers" href="#financial_news_sentiment.config.APIConfig.workers">workers</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.config.AppConfig" href="#financial_news_sentiment.config.AppConfig">AppConfig</a></code></h4>
+<ul class="two-column">
+<li><code><a title="financial_news_sentiment.config.AppConfig.api" href="#financial_news_sentiment.config.AppConfig.api">api</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.app_name" href="#financial_news_sentiment.config.AppConfig.app_name">app_name</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.app_version" href="#financial_news_sentiment.config.AppConfig.app_version">app_version</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.cache" href="#financial_news_sentiment.config.AppConfig.cache">cache</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.datasets" href="#financial_news_sentiment.config.AppConfig.datasets">datasets</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.environment" href="#financial_news_sentiment.config.AppConfig.environment">environment</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.evaluation" href="#financial_news_sentiment.config.AppConfig.evaluation">evaluation</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.from_yaml" href="#financial_news_sentiment.config.AppConfig.from_yaml">from_yaml</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.get_dataset_config" href="#financial_news_sentiment.config.AppConfig.get_dataset_config">get_dataset_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.get_model_config" href="#financial_news_sentiment.config.AppConfig.get_model_config">get_model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.live_data" href="#financial_news_sentiment.config.AppConfig.live_data">live_data</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.log_format" href="#financial_news_sentiment.config.AppConfig.log_format">log_format</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.log_level" href="#financial_news_sentiment.config.AppConfig.log_level">log_level</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.model_config" href="#financial_news_sentiment.config.AppConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.models" href="#financial_news_sentiment.config.AppConfig.models">models</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.monitoring" href="#financial_news_sentiment.config.AppConfig.monitoring">monitoring</a></code></li>
+<li><code><a title="financial_news_sentiment.config.AppConfig.security" href="#financial_news_sentiment.config.AppConfig.security">security</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.config.CacheConfig" href="#financial_news_sentiment.config.CacheConfig">CacheConfig</a></code></h4>
+<ul class="">
+<li><code><a title="financial_news_sentiment.config.CacheConfig.directory" href="#financial_news_sentiment.config.CacheConfig.directory">directory</a></code></li>
+<li><code><a title="financial_news_sentiment.config.CacheConfig.enabled" href="#financial_news_sentiment.config.CacheConfig.enabled">enabled</a></code></li>
+<li><code><a title="financial_news_sentiment.config.CacheConfig.max_size" href="#financial_news_sentiment.config.CacheConfig.max_size">max_size</a></code></li>
+<li><code><a title="financial_news_sentiment.config.CacheConfig.model_config" href="#financial_news_sentiment.config.CacheConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.CacheConfig.ttl" href="#financial_news_sentiment.config.CacheConfig.ttl">ttl</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.config.DatasetConfig" href="#financial_news_sentiment.config.DatasetConfig">DatasetConfig</a></code></h4>
+<ul class="two-column">
+<li><code><a title="financial_news_sentiment.config.DatasetConfig.cache_dir" href="#financial_news_sentiment.config.DatasetConfig.cache_dir">cache_dir</a></code></li>
+<li><code><a title="financial_news_sentiment.config.DatasetConfig.encoding" href="#financial_news_sentiment.config.DatasetConfig.encoding">encoding</a></code></li>
+<li><code><a title="financial_news_sentiment.config.DatasetConfig.file_path" href="#financial_news_sentiment.config.DatasetConfig.file_path">file_path</a></code></li>
+<li><code><a title="financial_news_sentiment.config.DatasetConfig.model_config" href="#financial_news_sentiment.config.DatasetConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.DatasetConfig.shuffle_seed" href="#financial_news_sentiment.config.DatasetConfig.shuffle_seed">shuffle_seed</a></code></li>
+<li><code><a title="financial_news_sentiment.config.DatasetConfig.url" href="#financial_news_sentiment.config.DatasetConfig.url">url</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.config.EvaluationConfig" href="#financial_news_sentiment.config.EvaluationConfig">EvaluationConfig</a></code></h4>
+<ul class="">
+<li><code><a title="financial_news_sentiment.config.EvaluationConfig.metrics" href="#financial_news_sentiment.config.EvaluationConfig.metrics">metrics</a></code></li>
+<li><code><a title="financial_news_sentiment.config.EvaluationConfig.model_config" href="#financial_news_sentiment.config.EvaluationConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.EvaluationConfig.num_sentences" href="#financial_news_sentiment.config.EvaluationConfig.num_sentences">num_sentences</a></code></li>
+<li><code><a title="financial_news_sentiment.config.EvaluationConfig.output_format" href="#financial_news_sentiment.config.EvaluationConfig.output_format">output_format</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.config.LiveDataConfig" href="#financial_news_sentiment.config.LiveDataConfig">LiveDataConfig</a></code></h4>
+<ul class="">
+<li><code><a title="financial_news_sentiment.config.LiveDataConfig.cache_ttl" href="#financial_news_sentiment.config.LiveDataConfig.cache_ttl">cache_ttl</a></code></li>
+<li><code><a title="financial_news_sentiment.config.LiveDataConfig.default_num_articles" href="#financial_news_sentiment.config.LiveDataConfig.default_num_articles">default_num_articles</a></code></li>
+<li><code><a title="financial_news_sentiment.config.LiveDataConfig.max_retries" href="#financial_news_sentiment.config.LiveDataConfig.max_retries">max_retries</a></code></li>
+<li><code><a title="financial_news_sentiment.config.LiveDataConfig.model_config" href="#financial_news_sentiment.config.LiveDataConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.LiveDataConfig.timeout" href="#financial_news_sentiment.config.LiveDataConfig.timeout">timeout</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.config.ModelConfig" href="#financial_news_sentiment.config.ModelConfig">ModelConfig</a></code></h4>
+<ul class="two-column">
+<li><code><a title="financial_news_sentiment.config.ModelConfig.batch_size" href="#financial_news_sentiment.config.ModelConfig.batch_size">batch_size</a></code></li>
+<li><code><a title="financial_news_sentiment.config.ModelConfig.cache_dir" href="#financial_news_sentiment.config.ModelConfig.cache_dir">cache_dir</a></code></li>
+<li><code><a title="financial_news_sentiment.config.ModelConfig.device" href="#financial_news_sentiment.config.ModelConfig.device">device</a></code></li>
+<li><code><a title="financial_news_sentiment.config.ModelConfig.model_config" href="#financial_news_sentiment.config.ModelConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.ModelConfig.name" href="#financial_news_sentiment.config.ModelConfig.name">name</a></code></li>
+<li><code><a title="financial_news_sentiment.config.ModelConfig.validate_device" href="#financial_news_sentiment.config.ModelConfig.validate_device">validate_device</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.config.MonitoringConfig" href="#financial_news_sentiment.config.MonitoringConfig">MonitoringConfig</a></code></h4>
+<ul class="">
+<li><code><a title="financial_news_sentiment.config.MonitoringConfig.collect_performance_metrics" href="#financial_news_sentiment.config.MonitoringConfig.collect_performance_metrics">collect_performance_metrics</a></code></li>
+<li><code><a title="financial_news_sentiment.config.MonitoringConfig.enabled" href="#financial_news_sentiment.config.MonitoringConfig.enabled">enabled</a></code></li>
+<li><code><a title="financial_news_sentiment.config.MonitoringConfig.metrics_port" href="#financial_news_sentiment.config.MonitoringConfig.metrics_port">metrics_port</a></code></li>
+<li><code><a title="financial_news_sentiment.config.MonitoringConfig.model_config" href="#financial_news_sentiment.config.MonitoringConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.MonitoringConfig.prometheus_enabled" href="#financial_news_sentiment.config.MonitoringConfig.prometheus_enabled">prometheus_enabled</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.config.OllamaConfig" href="#financial_news_sentiment.config.OllamaConfig">OllamaConfig</a></code></h4>
+<ul class="two-column">
+<li><code><a title="financial_news_sentiment.config.OllamaConfig.max_retries" href="#financial_news_sentiment.config.OllamaConfig.max_retries">max_retries</a></code></li>
+<li><code><a title="financial_news_sentiment.config.OllamaConfig.model" href="#financial_news_sentiment.config.OllamaConfig.model">model</a></code></li>
+<li><code><a title="financial_news_sentiment.config.OllamaConfig.model_config" href="#financial_news_sentiment.config.OllamaConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.OllamaConfig.system_prompt" href="#financial_news_sentiment.config.OllamaConfig.system_prompt">system_prompt</a></code></li>
+<li><code><a title="financial_news_sentiment.config.OllamaConfig.timeout" href="#financial_news_sentiment.config.OllamaConfig.timeout">timeout</a></code></li>
+<li><code><a title="financial_news_sentiment.config.OllamaConfig.url" href="#financial_news_sentiment.config.OllamaConfig.url">url</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.config.SecurityConfig" href="#financial_news_sentiment.config.SecurityConfig">SecurityConfig</a></code></h4>
+<ul class="">
+<li><code><a title="financial_news_sentiment.config.SecurityConfig.input_validation" href="#financial_news_sentiment.config.SecurityConfig.input_validation">input_validation</a></code></li>
+<li><code><a title="financial_news_sentiment.config.SecurityConfig.max_content_length" href="#financial_news_sentiment.config.SecurityConfig.max_content_length">max_content_length</a></code></li>
+<li><code><a title="financial_news_sentiment.config.SecurityConfig.model_config" href="#financial_news_sentiment.config.SecurityConfig.model_config">model_config</a></code></li>
+<li><code><a title="financial_news_sentiment.config.SecurityConfig.ssl_verify" href="#financial_news_sentiment.config.SecurityConfig.ssl_verify">ssl_verify</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

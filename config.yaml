@@ -1,0 +1,74 @@
+app_name: "financial-news-sentiment"
+app_version: "0.1.0"
+environment: "development"  # Options: development, staging, production
+log_level: "INFO"
+log_format: "json"  # Options: json, text
+
+# Model configurations
+models:
+  finbert:
+    name: "ProsusAI/finbert"
+    device: "auto"  # Options: cpu, cuda, auto
+    batch_size: 32
+    cache_dir: ".cache/models"
+
+  ollama:
+    url: "http://localhost:11434"
+    name: "qwen"
+    model: "qwen"
+    system_prompt: "You are a financial sentiment analysis AI. For the given text, respond with only a single number: 2 for positive, 1 for neutral, or 0 for negative sentiment."
+    timeout: 30  # API call timeout in seconds
+    max_retries: 3
+
+# Dataset configurations
+datasets:
+  financial_phrasebank:
+    url: "https://huggingface.co/datasets/takala/financial_phrasebank/resolve/main/data/FinancialPhraseBank-v1.0.zip"
+    file_path: "FinancialPhraseBank-v1.0/Sentences_AllAgree.txt"
+    encoding: "ISO-8859-1"
+    cache_dir: ".cache/datasets"
+    shuffle_seed: 23
+
+# Evaluation settings
+evaluation:
+  num_sentences: 100
+  metrics:
+    - accuracy
+    - classification_report
+  output_format: "text"  # Options: text, json, csv
+
+# Live data settings
+live_data:
+  yfinance:
+    timeout: 30
+    max_retries: 3
+    default_num_articles: 10
+    cache_ttl: 300  # Cache time-to-live in seconds
+
+# Cache settings
+cache:
+  enabled: true
+  directory: ".cache"
+  max_size: "1GB"
+  ttl: 86400  # Time-to-live in seconds (24 hours)
+
+# API settings (if running as a service)
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  timeout: 60
+  cors_origins: ["*"]
+
+# Security settings
+security:
+  ssl_verify: true
+  input_validation: true
+  max_content_length: "10MB"
+
+# Monitoring settings
+monitoring:
+  enabled: true
+  metrics_port: 9090
+  collect_performance_metrics: true
+  prometheus_enabled: false

@@ -1,0 +1,1249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>financial_news_sentiment.models API documentation</title>
+<meta name="description" content="Model implementations for sentiment analysis.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>financial_news_sentiment.models</code></h1>
+</header>
+<section id="section-intro">
+<p>Model implementations for sentiment analysis.</p>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="financial_news_sentiment.models.base" href="base.html">financial_news_sentiment.models.base</a></code></dt>
+<dd>
+<div class="desc"><p>Abstract base classes for sentiment analysis models.</p></div>
+</dd>
+<dt><code class="name"><a title="financial_news_sentiment.models.finbert" href="finbert.html">financial_news_sentiment.models.finbert</a></code></dt>
+<dd>
+<div class="desc"><p>Implementation of the FinBERT sentiment analysis model.</p></div>
+</dd>
+<dt><code class="name"><a title="financial_news_sentiment.models.ollama" href="ollama.html">financial_news_sentiment.models.ollama</a></code></dt>
+<dd>
+<div class="desc"><p>Implementation of the Ollama-based sentiment analysis model.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="financial_news_sentiment.models.BaseSentimentModel"><code class="flex name class">
+<span>class <span class="ident">BaseSentimentModel</span></span>
+<span>(</span><span>name: str, **kwargs: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseSentimentModel(abc.ABC):
+    &#34;&#34;&#34;Base class for all sentiment analysis models.
+
+    All sentiment analysis models must inherit from this class and implement
+    the required methods.
+
+    Example:
+        class MyModel(BaseSentimentModel):
+            async def predict(self, text: str) -&gt; int:
+                # Implement prediction logic
+                return 1  # positive sentiment
+    &#34;&#34;&#34;
+
+    def __init__(self, name: str, **kwargs: Any) -&gt; None:
+        &#34;&#34;&#34;Initialize the model.
+
+        Args:
+            name: Name of the model.
+            **kwargs: Model-specific configuration options.
+        &#34;&#34;&#34;
+        self.name = name
+        self.config = kwargs
+        self._is_initialized = False
+
+    @abc.abstractmethod
+    async def initialize(self) -&gt; None:
+        &#34;&#34;&#34;Initialize the model (load weights, start services, etc.).
+
+        This method should be called before making any predictions.
+        It should handle downloading model files, setting up connections, etc.
+
+        Raises:
+            ModelError: If initialization fails.
+        &#34;&#34;&#34;
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    async def predict(self, text: str) -&gt; int:
+        &#34;&#34;&#34;Predict sentiment for the given text.
+
+        Args:
+            text: The text to analyze.
+
+        Returns:
+            int: The predicted sentiment class:
+                - 0 for negative
+                - 1 for neutral
+                - 2 for positive
+
+        Raises:
+            ModelError: If prediction fails.
+        &#34;&#34;&#34;
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    async def predict_batch(self, texts: list[str]) -&gt; list[int]:
+        &#34;&#34;&#34;Predict sentiment for multiple texts at once.
+
+        Args:
+            texts: List of texts to analyze.
+
+        Returns:
+            List of predicted sentiment classes (0, 1, 2).
+
+        Raises:
+            ModelError: If prediction fails.
+        &#34;&#34;&#34;
+        raise NotImplementedError
+
+    async def cleanup(self) -&gt; None:
+        &#34;&#34;&#34;Clean up any resources used by the model.
+
+        This method should be called when the model is no longer needed.
+        Default implementation does nothing.
+        &#34;&#34;&#34;
+        pass
+        # Subclasses should override this for better batch processing
+        return [self.predict(text) for text in texts]
+
+    @property
+    def label_map(self) -&gt; dict[str, int]:
+        &#34;&#34;&#34;Get the mapping from text labels to numeric labels.
+
+        Returns:
+            dict[str, int]: Mapping from text labels to numeric labels
+        &#34;&#34;&#34;
+        return {&#34;negative&#34;: 0, &#34;neutral&#34;: 1, &#34;positive&#34;: 2}
+
+    @property
+    def id_to_label(self) -&gt; dict[int, str]:
+        &#34;&#34;&#34;Get the mapping from numeric labels to text labels.
+
+        Returns:
+            dict[int, str]: Mapping from numeric labels to text labels
+        &#34;&#34;&#34;
+        return {v: k for k, v in self.label_map.items()}
+
+    def __str__(self) -&gt; str:
+        &#34;&#34;&#34;Get string representation of the model.
+
+        Returns:
+            str: Model name
+        &#34;&#34;&#34;
+        return self.name</code></pre>
+</details>
+<div class="desc"><p>Base class for all sentiment analysis models.</p>
+<p>All sentiment analysis models must inherit from this class and implement
+the required methods.</p>
+<h2 id="example">Example</h2>
+<p>class MyModel(BaseSentimentModel):
+async def predict(self, text: str) -&gt; int:
+# Implement prediction logic
+return 1
+# positive sentiment</p>
+<p>Initialize the model.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>Name of the model.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Model-specific configuration options.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="financial_news_sentiment.models.finbert.FinBERTModel" href="finbert.html#financial_news_sentiment.models.finbert.FinBERTModel">FinBERTModel</a></li>
+<li><a title="financial_news_sentiment.models.ollama.OllamaModel" href="ollama.html#financial_news_sentiment.models.ollama.OllamaModel">OllamaModel</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="financial_news_sentiment.models.BaseSentimentModel.id_to_label"><code class="name">prop <span class="ident">id_to_label</span> : dict[int, str]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def id_to_label(self) -&gt; dict[int, str]:
+    &#34;&#34;&#34;Get the mapping from numeric labels to text labels.
+
+    Returns:
+        dict[int, str]: Mapping from numeric labels to text labels
+    &#34;&#34;&#34;
+    return {v: k for k, v in self.label_map.items()}</code></pre>
+</details>
+<div class="desc"><p>Get the mapping from numeric labels to text labels.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict[int, str]</code></dt>
+<dd>Mapping from numeric labels to text labels</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.models.BaseSentimentModel.label_map"><code class="name">prop <span class="ident">label_map</span> : dict[str, int]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def label_map(self) -&gt; dict[str, int]:
+    &#34;&#34;&#34;Get the mapping from text labels to numeric labels.
+
+    Returns:
+        dict[str, int]: Mapping from text labels to numeric labels
+    &#34;&#34;&#34;
+    return {&#34;negative&#34;: 0, &#34;neutral&#34;: 1, &#34;positive&#34;: 2}</code></pre>
+</details>
+<div class="desc"><p>Get the mapping from text labels to numeric labels.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict[str, int]</code></dt>
+<dd>Mapping from text labels to numeric labels</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="financial_news_sentiment.models.BaseSentimentModel.cleanup"><code class="name flex">
+<span>async def <span class="ident">cleanup</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def cleanup(self) -&gt; None:
+    &#34;&#34;&#34;Clean up any resources used by the model.
+
+    This method should be called when the model is no longer needed.
+    Default implementation does nothing.
+    &#34;&#34;&#34;
+    pass
+    # Subclasses should override this for better batch processing
+    return [self.predict(text) for text in texts]</code></pre>
+</details>
+<div class="desc"><p>Clean up any resources used by the model.</p>
+<p>This method should be called when the model is no longer needed.
+Default implementation does nothing.</p></div>
+</dd>
+<dt id="financial_news_sentiment.models.BaseSentimentModel.initialize"><code class="name flex">
+<span>async def <span class="ident">initialize</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+async def initialize(self) -&gt; None:
+    &#34;&#34;&#34;Initialize the model (load weights, start services, etc.).
+
+    This method should be called before making any predictions.
+    It should handle downloading model files, setting up connections, etc.
+
+    Raises:
+        ModelError: If initialization fails.
+    &#34;&#34;&#34;
+    raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>Initialize the model (load weights, start services, etc.).</p>
+<p>This method should be called before making any predictions.
+It should handle downloading model files, setting up connections, etc.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModelError</code></dt>
+<dd>If initialization fails.</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.models.BaseSentimentModel.predict"><code class="name flex">
+<span>async def <span class="ident">predict</span></span>(<span>self, text: str) ‑> int</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+async def predict(self, text: str) -&gt; int:
+    &#34;&#34;&#34;Predict sentiment for the given text.
+
+    Args:
+        text: The text to analyze.
+
+    Returns:
+        int: The predicted sentiment class:
+            - 0 for negative
+            - 1 for neutral
+            - 2 for positive
+
+    Raises:
+        ModelError: If prediction fails.
+    &#34;&#34;&#34;
+    raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>Predict sentiment for the given text.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong></dt>
+<dd>The text to analyze.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>The predicted sentiment class:
+- 0 for negative
+- 1 for neutral
+- 2 for positive</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModelError</code></dt>
+<dd>If prediction fails.</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.models.BaseSentimentModel.predict_batch"><code class="name flex">
+<span>async def <span class="ident">predict_batch</span></span>(<span>self, texts: list[str]) ‑> list[int]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+async def predict_batch(self, texts: list[str]) -&gt; list[int]:
+    &#34;&#34;&#34;Predict sentiment for multiple texts at once.
+
+    Args:
+        texts: List of texts to analyze.
+
+    Returns:
+        List of predicted sentiment classes (0, 1, 2).
+
+    Raises:
+        ModelError: If prediction fails.
+    &#34;&#34;&#34;
+    raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>Predict sentiment for multiple texts at once.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>texts</code></strong></dt>
+<dd>List of texts to analyze.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>List of predicted sentiment classes (0, 1, 2).</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModelError</code></dt>
+<dd>If prediction fails.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="financial_news_sentiment.models.FinBERTModel"><code class="flex name class">
+<span>class <span class="ident">FinBERTModel</span></span>
+<span>(</span><span>name: str = 'finbert', **kwargs: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FinBERTModel(BaseSentimentModel):
+    &#34;&#34;&#34;FinBERT model for financial sentiment analysis.&#34;&#34;&#34;
+
+    def __init__(self, name: str = &#34;finbert&#34;, **kwargs: Any) -&gt; None:
+        &#34;&#34;&#34;Initialize the FinBERT model.
+
+        Args:
+            name: Name of the model
+            **kwargs: Additional configuration options
+
+        Note:
+            The model is not loaded until initialize() is called.
+        &#34;&#34;&#34;
+        super().__init__(name, **kwargs)
+        self.device = None
+        self.tokenizer = None
+        self.model = None
+        # FinBERT has a different label order:
+        # 0 (positive) -&gt; 2 (positive)
+        # 1 (negative) -&gt; 0 (negative)
+        # 2 (neutral) -&gt; 1 (neutral)
+        self.finbert_label_map = {0: 2, 1: 0, 2: 1}
+
+    async def initialize(self) -&gt; None:
+        &#34;&#34;&#34;Initialize the model by loading it into memory.
+
+        Raises:
+            ModelError: If there is an error loading the model or tokenizer
+        &#34;&#34;&#34;
+        if self._is_initialized:
+            return
+
+        try:
+            self.device = torch.device(&#34;cuda&#34; if torch.cuda.is_available() else &#34;cpu&#34;)
+            # Run model loading in a thread pool to avoid blocking
+            loop = asyncio.get_event_loop()
+
+            def load_tokenizer():
+                return AutoTokenizer.from_pretrained(&#34;ProsusAI/finbert&#34;)
+
+            def load_model():
+                return AutoModelForSequenceClassification.from_pretrained(
+                    &#34;ProsusAI/finbert&#34;
+                )
+
+            self.tokenizer = await loop.run_in_executor(None, load_tokenizer)
+            self.model = await loop.run_in_executor(None, load_model)
+            self.model.to(self.device)
+            self._is_initialized = True
+        except Exception as e:
+            raise ModelError(
+                &#34;Failed to initialize FinBERT model&#34;,
+                component=&#34;finbert&#34;,
+                details=str(e),
+            )
+
+    async def predict(self, text: str) -&gt; int:
+        &#34;&#34;&#34;Predict sentiment for a given text.
+
+        Args:
+            text: Input text to analyze
+
+        Returns:
+            int: Predicted sentiment label (0=negative, 1=neutral, 2=positive)
+
+        Raises:
+            ModelError: If there is an error during prediction
+            ModelError: If the model has not been initialized
+        &#34;&#34;&#34;
+        if not self._is_initialized:
+            raise ModelError(
+                &#34;Model not initialized. Call initialize() first.&#34;, component=&#34;finbert&#34;
+            )
+
+        try:
+            inputs = self.tokenizer(
+                text, return_tensors=&#34;pt&#34;, truncation=True, max_length=512
+            )
+            inputs = {k: v.to(self.device) for k, v in inputs.items()}
+
+            with torch.no_grad():
+                outputs = self.model(**inputs)
+                probabilities = torch.softmax(outputs.logits, dim=1)
+                finbert_label = torch.argmax(probabilities, dim=1).item()
+
+            # Map FinBERT&#39;s label order to our standard order
+            return self.finbert_label_map[finbert_label]
+        except Exception as e:
+            raise ModelError(
+                &#34;Failed to generate prediction&#34;, component=&#34;finbert&#34;, details=str(e)
+            )
+
+    async def predict_batch(self, texts: list[str]) -&gt; list[int]:
+        &#34;&#34;&#34;Predict sentiment for multiple texts simultaneously.
+
+        Args:
+            texts: List of texts to analyze
+
+        Returns:
+            list[int]: List of predicted sentiment labels
+                      (0=negative, 1=neutral, 2=positive)
+
+        Raises:
+            ModelError: If there is an error during prediction
+            ModelError: If the model has not been initialized
+        &#34;&#34;&#34;
+        if not self._is_initialized:
+            raise ModelError(
+                &#34;Model not initialized. Call initialize() first.&#34;, component=&#34;finbert&#34;
+            )
+
+        try:
+            # Batch tokenize all texts
+            inputs = self.tokenizer(
+                texts,
+                return_tensors=&#34;pt&#34;,
+                truncation=True,
+                max_length=512,
+                padding=True,
+            )
+            inputs = {k: v.to(self.device) for k, v in inputs.items()}
+
+            # Get predictions for all texts at once
+            with torch.no_grad():
+                outputs = self.model(**inputs)
+                probabilities = torch.softmax(outputs.logits, dim=1)
+                finbert_labels = torch.argmax(probabilities, dim=1).tolist()
+
+            # Map all predictions to our standard label order
+            return [self.finbert_label_map[label] for label in finbert_labels]
+        except Exception as e:
+            raise ModelError(
+                &#34;Failed to generate batch predictions&#34;,
+                component=&#34;finbert&#34;,
+                details=str(e),
+            )
+        try:
+            inputs = self.tokenizer(
+                text,
+                return_tensors=&#34;pt&#34;,
+                truncation=True,
+                padding=True,
+            ).to(self.device)
+
+            with torch.no_grad():
+                logits = self.model(**inputs).logits
+
+            # Get the model&#39;s predicted class ID
+            predicted_class_id = logits.argmax(dim=-1).item()
+
+            # Map the model&#39;s class ID to our dataset&#39;s label ID
+            return self.finbert_label_map[predicted_class_id]
+        except Exception as e:
+            raise ModelError(
+                &#34;Error during FinBERT prediction&#34;,
+                component=&#34;finbert&#34;,
+                details=str(e),
+            )
+
+    async def predict_batch(self, texts: list[str]) -&gt; list[int]:
+        &#34;&#34;&#34;Predict sentiment for a batch of texts.
+
+        Args:
+            texts: List of input texts to analyze
+
+        Returns:
+            list[int]: List of predicted sentiment labels
+
+        Raises:
+            ModelError: If there is an error during batch prediction
+        &#34;&#34;&#34;
+        if not self._is_initialized:
+            raise ModelError(
+                &#34;Model not initialized. Call initialize() first.&#34;, component=&#34;finbert&#34;
+            )
+
+        try:
+            # Run in executor to avoid blocking
+            loop = asyncio.get_event_loop()
+
+            def process_batch():
+                # Tokenize all texts in the batch
+                inputs = self.tokenizer(
+                    texts,
+                    return_tensors=&#34;pt&#34;,
+                    truncation=True,
+                    padding=True,
+                ).to(self.device)
+
+                with torch.no_grad():
+                    logits = self.model(**inputs).logits
+
+                # Get predicted class IDs for the batch
+                predicted_class_ids = logits.argmax(dim=-1).tolist()
+
+                # Map model class IDs to our dataset&#39;s label IDs
+                return [
+                    self.finbert_label_map[class_id] for class_id in predicted_class_ids
+                ]
+
+            return await loop.run_in_executor(None, process_batch)
+        except Exception as e:
+            raise ModelError(
+                &#34;Error during FinBERT batch prediction&#34;,
+                component=&#34;finbert&#34;,
+                details=str(e),
+            )</code></pre>
+</details>
+<div class="desc"><p>FinBERT model for financial sentiment analysis.</p>
+<p>Initialize the FinBERT model.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>Name of the model</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Additional configuration options</dd>
+</dl>
+<h2 id="note">Note</h2>
+<p>The model is not loaded until initialize() is called.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="financial_news_sentiment.models.base.BaseSentimentModel" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel">BaseSentimentModel</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="financial_news_sentiment.models.FinBERTModel.initialize"><code class="name flex">
+<span>async def <span class="ident">initialize</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def initialize(self) -&gt; None:
+    &#34;&#34;&#34;Initialize the model by loading it into memory.
+
+    Raises:
+        ModelError: If there is an error loading the model or tokenizer
+    &#34;&#34;&#34;
+    if self._is_initialized:
+        return
+
+    try:
+        self.device = torch.device(&#34;cuda&#34; if torch.cuda.is_available() else &#34;cpu&#34;)
+        # Run model loading in a thread pool to avoid blocking
+        loop = asyncio.get_event_loop()
+
+        def load_tokenizer():
+            return AutoTokenizer.from_pretrained(&#34;ProsusAI/finbert&#34;)
+
+        def load_model():
+            return AutoModelForSequenceClassification.from_pretrained(
+                &#34;ProsusAI/finbert&#34;
+            )
+
+        self.tokenizer = await loop.run_in_executor(None, load_tokenizer)
+        self.model = await loop.run_in_executor(None, load_model)
+        self.model.to(self.device)
+        self._is_initialized = True
+    except Exception as e:
+        raise ModelError(
+            &#34;Failed to initialize FinBERT model&#34;,
+            component=&#34;finbert&#34;,
+            details=str(e),
+        )</code></pre>
+</details>
+<div class="desc"><p>Initialize the model by loading it into memory.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModelError</code></dt>
+<dd>If there is an error loading the model or tokenizer</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.models.FinBERTModel.predict"><code class="name flex">
+<span>async def <span class="ident">predict</span></span>(<span>self, text: str) ‑> int</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def predict(self, text: str) -&gt; int:
+    &#34;&#34;&#34;Predict sentiment for a given text.
+
+    Args:
+        text: Input text to analyze
+
+    Returns:
+        int: Predicted sentiment label (0=negative, 1=neutral, 2=positive)
+
+    Raises:
+        ModelError: If there is an error during prediction
+        ModelError: If the model has not been initialized
+    &#34;&#34;&#34;
+    if not self._is_initialized:
+        raise ModelError(
+            &#34;Model not initialized. Call initialize() first.&#34;, component=&#34;finbert&#34;
+        )
+
+    try:
+        inputs = self.tokenizer(
+            text, return_tensors=&#34;pt&#34;, truncation=True, max_length=512
+        )
+        inputs = {k: v.to(self.device) for k, v in inputs.items()}
+
+        with torch.no_grad():
+            outputs = self.model(**inputs)
+            probabilities = torch.softmax(outputs.logits, dim=1)
+            finbert_label = torch.argmax(probabilities, dim=1).item()
+
+        # Map FinBERT&#39;s label order to our standard order
+        return self.finbert_label_map[finbert_label]
+    except Exception as e:
+        raise ModelError(
+            &#34;Failed to generate prediction&#34;, component=&#34;finbert&#34;, details=str(e)
+        )</code></pre>
+</details>
+<div class="desc"><p>Predict sentiment for a given text.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong></dt>
+<dd>Input text to analyze</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Predicted sentiment label (0=negative, 1=neutral, 2=positive)</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModelError</code></dt>
+<dd>If there is an error during prediction</dd>
+<dt><code>ModelError</code></dt>
+<dd>If the model has not been initialized</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.models.FinBERTModel.predict_batch"><code class="name flex">
+<span>async def <span class="ident">predict_batch</span></span>(<span>self, texts: list[str]) ‑> list[int]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def predict_batch(self, texts: list[str]) -&gt; list[int]:
+    &#34;&#34;&#34;Predict sentiment for a batch of texts.
+
+    Args:
+        texts: List of input texts to analyze
+
+    Returns:
+        list[int]: List of predicted sentiment labels
+
+    Raises:
+        ModelError: If there is an error during batch prediction
+    &#34;&#34;&#34;
+    if not self._is_initialized:
+        raise ModelError(
+            &#34;Model not initialized. Call initialize() first.&#34;, component=&#34;finbert&#34;
+        )
+
+    try:
+        # Run in executor to avoid blocking
+        loop = asyncio.get_event_loop()
+
+        def process_batch():
+            # Tokenize all texts in the batch
+            inputs = self.tokenizer(
+                texts,
+                return_tensors=&#34;pt&#34;,
+                truncation=True,
+                padding=True,
+            ).to(self.device)
+
+            with torch.no_grad():
+                logits = self.model(**inputs).logits
+
+            # Get predicted class IDs for the batch
+            predicted_class_ids = logits.argmax(dim=-1).tolist()
+
+            # Map model class IDs to our dataset&#39;s label IDs
+            return [
+                self.finbert_label_map[class_id] for class_id in predicted_class_ids
+            ]
+
+        return await loop.run_in_executor(None, process_batch)
+    except Exception as e:
+        raise ModelError(
+            &#34;Error during FinBERT batch prediction&#34;,
+            component=&#34;finbert&#34;,
+            details=str(e),
+        )</code></pre>
+</details>
+<div class="desc"><p>Predict sentiment for a batch of texts.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>texts</code></strong></dt>
+<dd>List of input texts to analyze</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[int]</code></dt>
+<dd>List of predicted sentiment labels</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModelError</code></dt>
+<dd>If there is an error during batch prediction</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="financial_news_sentiment.models.base.BaseSentimentModel" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel">BaseSentimentModel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="financial_news_sentiment.models.base.BaseSentimentModel.cleanup" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel.cleanup">cleanup</a></code></li>
+<li><code><a title="financial_news_sentiment.models.base.BaseSentimentModel.id_to_label" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel.id_to_label">id_to_label</a></code></li>
+<li><code><a title="financial_news_sentiment.models.base.BaseSentimentModel.label_map" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel.label_map">label_map</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="financial_news_sentiment.models.OllamaModel"><code class="flex name class">
+<span>class <span class="ident">OllamaModel</span></span>
+<span>(</span><span>name: str = 'qwen3',<br>base_url: str | None = None,<br>system_prompt: str | None = None,<br>timeout: float = 30.0,<br>**kwargs: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OllamaModel(BaseSentimentModel):
+    &#34;&#34;&#34;Ollama-based model for sentiment analysis.&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        name: str = &#34;qwen3&#34;,
+        base_url: Optional[str] = None,
+        system_prompt: Optional[str] = None,
+        timeout: float = 30.0,
+        **kwargs: Any,
+    ) -&gt; None:
+        &#34;&#34;&#34;Initialize the Ollama model.
+
+        Args:
+            name: Name of the model (e.g., &#39;qwen3&#39;)
+            base_url: Base URL for the Ollama API (default: http://localhost:11434)
+            system_prompt: System prompt for sentiment analysis
+            timeout: API call timeout in seconds
+            **kwargs: Additional configuration options
+        &#34;&#34;&#34;
+        super().__init__(name, **kwargs)
+        self.base_url = base_url or &#34;http://localhost:11434&#34;
+        self.model_name = name
+        self.system_prompt = system_prompt or (
+            &#34;You are a financial sentiment analyzer. &#34;
+            &#34;Read the text and determine if it expresses a positive (2), &#34;
+            &#34;neutral (1), or negative (0) sentiment. &#34;
+            &#34;Respond with ONLY the number representing the sentiment.&#34;
+        )
+        self.llm = ollama.AsyncClient(host=self.base_url)
+
+    async def initialize(self) -&gt; None:
+        &#34;&#34;&#34;Initialize the connection to the Ollama service.
+
+        Raises:
+            ModelError: If there is an error connecting to Ollama
+        &#34;&#34;&#34;
+        if self._is_initialized:
+            return
+
+        try:
+            # Test the model by making a simple request
+            await self.llm.chat(
+                model=self.model_name,
+                messages=[{&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;Test connection.&#34;}],
+                think=False,  # faster responses and only the sentiment in response, no &lt;think&gt;
+            )
+            self._is_initialized = True
+        except Exception as e:
+            raise ModelError(
+                &#34;Failed to initialize Ollama client&#34;, component=&#34;ollama&#34;, details=str(e)
+            )
+
+    async def predict(self, text: str) -&gt; Optional[int]:
+        &#34;&#34;&#34;Predict sentiment for a given text.
+
+        Args:
+            text: Input text to analyze
+
+        Returns:
+            Optional[int]: Predicted sentiment label (0=negative, 1=neutral, 2=positive),
+                        or None if prediction failed
+
+        Raises:
+            ModelError: If there is an error connecting to the model
+            ModelError: If the model has not been initialized
+        &#34;&#34;&#34;
+        if not self._is_initialized:
+            raise ModelError(
+                &#34;Model not initialized. Call initialize() first.&#34;, component=&#34;ollama&#34;
+            )
+
+        try:
+            messages = [
+                {&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: self.system_prompt},
+                {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: text},
+            ]
+            response = await self.llm.chat(
+                model=self.model_name,
+                messages=messages,
+                think=False,  # faster responses and only the sentiment in response, no &lt;think&gt;
+            )
+            if (
+                response
+                and hasattr(response, &#34;message&#34;)
+                and hasattr(response.message, &#34;content&#34;)
+            ):
+                if response.message and response.message.content:
+                    cleaned = response.message.content.strip()
+
+                # Try to parse the response as a sentiment label
+                try:
+                    sentiment = int(cleaned)
+                    if sentiment not in {0, 1, 2}:
+                        return None
+                    return sentiment
+                except (ValueError, TypeError):
+                    return None
+
+            return None
+
+        except Exception as e:
+            raise ModelError(
+                &#34;Failed to predict sentiment&#34;, component=&#34;ollama&#34;, details=str(e)
+            )
+
+    async def predict_batch(self, texts: List[str]) -&gt; List[Optional[int]]:
+        &#34;&#34;&#34;Predict sentiment for multiple texts.
+
+        Args:
+            texts: List of texts to analyze
+
+        Returns:
+            List[Optional[int]]: List of predicted sentiment labels
+                              (0=negative, 1=neutral, 2=positive, None for failed predictions)
+
+        Raises:
+            ModelError: If prediction fails
+            ModelError: If the model has not been initialized
+        &#34;&#34;&#34;
+        if not self._is_initialized:
+            raise ModelError(
+                &#34;Model not initialized. Call initialize() first.&#34;, component=&#34;ollama&#34;
+            )
+
+        # Use a semaphore to limit concurrent API calls
+        semaphore = asyncio.Semaphore(5)  # Max 5 concurrent requests
+
+        async def predict_with_semaphore(text: str) -&gt; Optional[int]:
+            async with semaphore:
+                return await self.predict(text)
+
+        try:
+            # Predict all texts concurrently with rate limiting
+            tasks = [predict_with_semaphore(text) for text in texts]
+            return await asyncio.gather(*tasks)
+        except Exception as e:
+            raise ModelError(
+                &#34;Failed to generate batch predictions&#34;,
+                component=&#34;ollama&#34;,
+                details=str(e),
+            )</code></pre>
+</details>
+<div class="desc"><p>Ollama-based model for sentiment analysis.</p>
+<p>Initialize the Ollama model.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>Name of the model (e.g., 'qwen3')</dd>
+<dt><strong><code>base_url</code></strong></dt>
+<dd>Base URL for the Ollama API (default: <a href="http://localhost:11434">http://localhost:11434</a>)</dd>
+<dt><strong><code>system_prompt</code></strong></dt>
+<dd>System prompt for sentiment analysis</dd>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>API call timeout in seconds</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Additional configuration options</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="financial_news_sentiment.models.base.BaseSentimentModel" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel">BaseSentimentModel</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="financial_news_sentiment.models.OllamaModel.initialize"><code class="name flex">
+<span>async def <span class="ident">initialize</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def initialize(self) -&gt; None:
+    &#34;&#34;&#34;Initialize the connection to the Ollama service.
+
+    Raises:
+        ModelError: If there is an error connecting to Ollama
+    &#34;&#34;&#34;
+    if self._is_initialized:
+        return
+
+    try:
+        # Test the model by making a simple request
+        await self.llm.chat(
+            model=self.model_name,
+            messages=[{&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;Test connection.&#34;}],
+            think=False,  # faster responses and only the sentiment in response, no &lt;think&gt;
+        )
+        self._is_initialized = True
+    except Exception as e:
+        raise ModelError(
+            &#34;Failed to initialize Ollama client&#34;, component=&#34;ollama&#34;, details=str(e)
+        )</code></pre>
+</details>
+<div class="desc"><p>Initialize the connection to the Ollama service.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModelError</code></dt>
+<dd>If there is an error connecting to Ollama</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.models.OllamaModel.predict"><code class="name flex">
+<span>async def <span class="ident">predict</span></span>(<span>self, text: str) ‑> int | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def predict(self, text: str) -&gt; Optional[int]:
+    &#34;&#34;&#34;Predict sentiment for a given text.
+
+    Args:
+        text: Input text to analyze
+
+    Returns:
+        Optional[int]: Predicted sentiment label (0=negative, 1=neutral, 2=positive),
+                    or None if prediction failed
+
+    Raises:
+        ModelError: If there is an error connecting to the model
+        ModelError: If the model has not been initialized
+    &#34;&#34;&#34;
+    if not self._is_initialized:
+        raise ModelError(
+            &#34;Model not initialized. Call initialize() first.&#34;, component=&#34;ollama&#34;
+        )
+
+    try:
+        messages = [
+            {&#34;role&#34;: &#34;system&#34;, &#34;content&#34;: self.system_prompt},
+            {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: text},
+        ]
+        response = await self.llm.chat(
+            model=self.model_name,
+            messages=messages,
+            think=False,  # faster responses and only the sentiment in response, no &lt;think&gt;
+        )
+        if (
+            response
+            and hasattr(response, &#34;message&#34;)
+            and hasattr(response.message, &#34;content&#34;)
+        ):
+            if response.message and response.message.content:
+                cleaned = response.message.content.strip()
+
+            # Try to parse the response as a sentiment label
+            try:
+                sentiment = int(cleaned)
+                if sentiment not in {0, 1, 2}:
+                    return None
+                return sentiment
+            except (ValueError, TypeError):
+                return None
+
+        return None
+
+    except Exception as e:
+        raise ModelError(
+            &#34;Failed to predict sentiment&#34;, component=&#34;ollama&#34;, details=str(e)
+        )</code></pre>
+</details>
+<div class="desc"><p>Predict sentiment for a given text.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong></dt>
+<dd>Input text to analyze</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Optional[int]</code></dt>
+<dd>Predicted sentiment label (0=negative, 1=neutral, 2=positive),
+or None if prediction failed</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModelError</code></dt>
+<dd>If there is an error connecting to the model</dd>
+<dt><code>ModelError</code></dt>
+<dd>If the model has not been initialized</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.models.OllamaModel.predict_batch"><code class="name flex">
+<span>async def <span class="ident">predict_batch</span></span>(<span>self, texts: List[str]) ‑> List[int | None]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def predict_batch(self, texts: List[str]) -&gt; List[Optional[int]]:
+    &#34;&#34;&#34;Predict sentiment for multiple texts.
+
+    Args:
+        texts: List of texts to analyze
+
+    Returns:
+        List[Optional[int]]: List of predicted sentiment labels
+                          (0=negative, 1=neutral, 2=positive, None for failed predictions)
+
+    Raises:
+        ModelError: If prediction fails
+        ModelError: If the model has not been initialized
+    &#34;&#34;&#34;
+    if not self._is_initialized:
+        raise ModelError(
+            &#34;Model not initialized. Call initialize() first.&#34;, component=&#34;ollama&#34;
+        )
+
+    # Use a semaphore to limit concurrent API calls
+    semaphore = asyncio.Semaphore(5)  # Max 5 concurrent requests
+
+    async def predict_with_semaphore(text: str) -&gt; Optional[int]:
+        async with semaphore:
+            return await self.predict(text)
+
+    try:
+        # Predict all texts concurrently with rate limiting
+        tasks = [predict_with_semaphore(text) for text in texts]
+        return await asyncio.gather(*tasks)
+    except Exception as e:
+        raise ModelError(
+            &#34;Failed to generate batch predictions&#34;,
+            component=&#34;ollama&#34;,
+            details=str(e),
+        )</code></pre>
+</details>
+<div class="desc"><p>Predict sentiment for multiple texts.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>texts</code></strong></dt>
+<dd>List of texts to analyze</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Optional[int]]</code></dt>
+<dd>List of predicted sentiment labels
+(0=negative, 1=neutral, 2=positive, None for failed predictions)</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModelError</code></dt>
+<dd>If prediction fails</dd>
+<dt><code>ModelError</code></dt>
+<dd>If the model has not been initialized</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="financial_news_sentiment.models.base.BaseSentimentModel" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel">BaseSentimentModel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="financial_news_sentiment.models.base.BaseSentimentModel.cleanup" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel.cleanup">cleanup</a></code></li>
+<li><code><a title="financial_news_sentiment.models.base.BaseSentimentModel.id_to_label" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel.id_to_label">id_to_label</a></code></li>
+<li><code><a title="financial_news_sentiment.models.base.BaseSentimentModel.label_map" href="base.html#financial_news_sentiment.models.base.BaseSentimentModel.label_map">label_map</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="financial_news_sentiment" href="../index.html">financial_news_sentiment</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="financial_news_sentiment.models.base" href="base.html">financial_news_sentiment.models.base</a></code></li>
+<li><code><a title="financial_news_sentiment.models.finbert" href="finbert.html">financial_news_sentiment.models.finbert</a></code></li>
+<li><code><a title="financial_news_sentiment.models.ollama" href="ollama.html">financial_news_sentiment.models.ollama</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="financial_news_sentiment.models.BaseSentimentModel" href="#financial_news_sentiment.models.BaseSentimentModel">BaseSentimentModel</a></code></h4>
+<ul class="two-column">
+<li><code><a title="financial_news_sentiment.models.BaseSentimentModel.cleanup" href="#financial_news_sentiment.models.BaseSentimentModel.cleanup">cleanup</a></code></li>
+<li><code><a title="financial_news_sentiment.models.BaseSentimentModel.id_to_label" href="#financial_news_sentiment.models.BaseSentimentModel.id_to_label">id_to_label</a></code></li>
+<li><code><a title="financial_news_sentiment.models.BaseSentimentModel.initialize" href="#financial_news_sentiment.models.BaseSentimentModel.initialize">initialize</a></code></li>
+<li><code><a title="financial_news_sentiment.models.BaseSentimentModel.label_map" href="#financial_news_sentiment.models.BaseSentimentModel.label_map">label_map</a></code></li>
+<li><code><a title="financial_news_sentiment.models.BaseSentimentModel.predict" href="#financial_news_sentiment.models.BaseSentimentModel.predict">predict</a></code></li>
+<li><code><a title="financial_news_sentiment.models.BaseSentimentModel.predict_batch" href="#financial_news_sentiment.models.BaseSentimentModel.predict_batch">predict_batch</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.models.FinBERTModel" href="#financial_news_sentiment.models.FinBERTModel">FinBERTModel</a></code></h4>
+<ul class="">
+<li><code><a title="financial_news_sentiment.models.FinBERTModel.initialize" href="#financial_news_sentiment.models.FinBERTModel.initialize">initialize</a></code></li>
+<li><code><a title="financial_news_sentiment.models.FinBERTModel.predict" href="#financial_news_sentiment.models.FinBERTModel.predict">predict</a></code></li>
+<li><code><a title="financial_news_sentiment.models.FinBERTModel.predict_batch" href="#financial_news_sentiment.models.FinBERTModel.predict_batch">predict_batch</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="financial_news_sentiment.models.OllamaModel" href="#financial_news_sentiment.models.OllamaModel">OllamaModel</a></code></h4>
+<ul class="">
+<li><code><a title="financial_news_sentiment.models.OllamaModel.initialize" href="#financial_news_sentiment.models.OllamaModel.initialize">initialize</a></code></li>
+<li><code><a title="financial_news_sentiment.models.OllamaModel.predict" href="#financial_news_sentiment.models.OllamaModel.predict">predict</a></code></li>
+<li><code><a title="financial_news_sentiment.models.OllamaModel.predict_batch" href="#financial_news_sentiment.models.OllamaModel.predict_batch">predict_batch</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

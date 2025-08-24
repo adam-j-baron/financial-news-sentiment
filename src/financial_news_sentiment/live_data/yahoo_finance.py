@@ -1,0 +1,93 @@
+"""Yahoo Finance live data source implementation."""
+from datetime import datetime
+from typing import Any, Dict, List, Optional
+
+import requests
+import yfinance as yf  # type: ignore
+from newspaper import Article  # type: ignore
+
+from ..exceptions import LiveDataError
+from .base import BaseLiveDataSource
+
+
+class YahooFinanceDataSource(BaseLiveDataSource):
+    """Yahoo Finance data source for live financial news."""
+
+    def __init__(
+        self,
+        name: str = "Yahoo Finance",
+        timeout: float = 30.0,
+    ) -> None:
+        """Initialize the Yahoo Finance data source.
+
+        Args:
+            name: Name of the data source
+            timeout: Timeout for HTTP requests in seconds
+        """
+        super().__init__(name)
+        self.timeout = timeout
+
+    async def fetch_data(
+        self,
+        query: str,
+        max_items: Optional[int] = None,
+    ) -> List[Dict[str, Any]]:
+        """Fetch financial news from Yahoo Finance.
+
+        Args:
+            query: Stock ticker symbol (e.g., 'MSFT', 'AAPL')
+            max_items: Maximum number of articles to fetch
+
+        Returns:
+            List[Dict[str, Any]]: List of news articles with metadata
+
+        Raises:
+            LiveDataError: If there is an error fetching or parsing data
+        """
+        try:
+            # Get news summaries from Yahoo Finance
+            stock = yf.Ticker(query)
+            news_items = stock.news
+
+            if not news_items:
+                return []
+
+            # Limit number of items if specified
+            if max_items:
+                news_items = news_items[:max_items]
+
+            articles = []
+            for item in news_items:
+                try:
+                    # Extract URL from the news item
+                    url = item["content"]["canonicalUrl"]["url"]
+
+                    # Fetch full article content using newspaper3k
+                    article = Article(url)
+                    article.download()
+                    article.parse()
+
+                    # Create article metadata
+                    article_data = {
+                        "id": item["content"]["id"],
+                        "url": url,
+                        "title": item["content"]["title"],
+                        "timestamp": item["content"][
+                            "pubDate"
+                        ],  # Keep original timestamp
+                        "content": article.text,
+                    }
+
+                    articles.append(article_data)
+
+                except Exception as e:
+                    # Log error and continue to next article
+                    print(f"Failed to fetch article {item['content']['id']}: {str(e)}")
+                    continue
+
+            return articles
+
+        except Exception as e:
+            raise LiveDataError(
+                "Failed to fetch news data", component="yahoo_finance", details=str(e)
+            )

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>financial_news_sentiment.cli API documentation</title>
+<meta name="description" content="Command-line interface for the financial news sentiment analysis system.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>financial_news_sentiment.cli</code></h1>
+</header>
+<section id="section-intro">
+<p>Command-line interface for the financial news sentiment analysis system.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="financial_news_sentiment.cli.analyze"><code class="name flex">
+<span>def <span class="ident">analyze</span></span>(<span>ticker: str = &lt;typer.models.ArgumentInfo object&gt;,<br>max_articles: int | None = &lt;typer.models.OptionInfo object&gt;,<br>model: str | None = &lt;typer.models.OptionInfo object&gt;,<br>config_path: pathlib.Path | None = &lt;typer.models.OptionInfo object&gt;)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@app.command(name=&#34;analyze-news&#34;)
+def analyze(
+    ticker: str = typer.Argument(..., help=&#34;Stock ticker symbol&#34;),
+    max_articles: Optional[int] = typer.Option(
+        5,
+        &#34;--max-articles&#34;,
+        &#34;-n&#34;,
+        help=&#34;Maximum number of articles to analyze&#34;,
+    ),
+    model: Optional[str] = typer.Option(
+        None,
+        &#34;--model&#34;,
+        &#34;-m&#34;,
+        help=&#34;Model to use (finbert, ollama, or all)&#34;,
+    ),
+    config_path: Optional[Path] = typer.Option(
+        None,
+        &#34;--config&#34;,
+        &#34;-c&#34;,
+        help=&#34;Path to configuration file&#34;,
+    ),
+):
+    &#34;&#34;&#34;Analyze sentiment in live financial news for a given stock ticker.&#34;&#34;&#34;
+    return run_async(_analyze(ticker, max_articles, model, config_path))</code></pre>
+</details>
+<div class="desc"><p>Analyze sentiment in live financial news for a given stock ticker.</p></div>
+</dd>
+<dt id="financial_news_sentiment.cli.callback"><code class="name flex">
+<span>def <span class="ident">callback</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@app.callback()
+def callback():
+    &#34;&#34;&#34;Financial News Sentiment Analysis CLI.&#34;&#34;&#34;</code></pre>
+</details>
+<div class="desc"><p>Financial News Sentiment Analysis CLI.</p></div>
+</dd>
+<dt id="financial_news_sentiment.cli.evaluate"><code class="name flex">
+<span>def <span class="ident">evaluate</span></span>(<span>config_path: pathlib.Path | None = &lt;typer.models.OptionInfo object&gt;,<br>max_samples: int | None = &lt;typer.models.OptionInfo object&gt;,<br>model: str | None = &lt;typer.models.OptionInfo object&gt;)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@app.command()
+def evaluate(
+    config_path: Optional[Path] = typer.Option(
+        None,
+        &#34;--config&#34;,
+        &#34;-c&#34;,
+        help=&#34;Path to configuration file&#34;,
+    ),
+    max_samples: Optional[int] = typer.Option(
+        None,
+        &#34;--max-samples&#34;,
+        &#34;-n&#34;,
+        help=&#34;Maximum number of samples to evaluate&#34;,
+    ),
+    model: Optional[str] = typer.Option(
+        None,
+        &#34;--model&#34;,
+        &#34;-m&#34;,
+        help=&#34;Model to evaluate (finbert, ollama, or all)&#34;,
+    ),
+):
+    &#34;&#34;&#34;Evaluate sentiment analysis models on the Financial PhraseBank dataset.&#34;&#34;&#34;
+    return run_async(_evaluate(config_path, max_samples, model))</code></pre>
+</details>
+<div class="desc"><p>Evaluate sentiment analysis models on the Financial PhraseBank dataset.</p></div>
+</dd>
+<dt id="financial_news_sentiment.cli.load_models"><code class="name flex">
+<span>def <span class="ident">load_models</span></span>(<span>config: <a title="financial_news_sentiment.config.AppConfig" href="config.html#financial_news_sentiment.config.AppConfig">AppConfig</a>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_models(config: AppConfig):
+    &#34;&#34;&#34;Load sentiment analysis models.
+
+    Args:
+        config: Application configuration
+
+    Returns:
+        tuple: FinBERT and Ollama models
+    &#34;&#34;&#34;
+    finbert = FinBERTModel()  # Using default configuration
+    ollama = OllamaModel()  # Using default configuration
+
+    return finbert, ollama</code></pre>
+</details>
+<div class="desc"><p>Load sentiment analysis models.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>config</code></strong></dt>
+<dd>Application configuration</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>FinBERT and Ollama models</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.cli.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    &#34;&#34;&#34;Main entry point for the CLI.&#34;&#34;&#34;
+    app()</code></pre>
+</details>
+<div class="desc"><p>Main entry point for the CLI.</p></div>
+</dd>
+<dt id="financial_news_sentiment.cli.print_evaluation_results"><code class="name flex">
+<span>def <span class="ident">print_evaluation_results</span></span>(<span>results: dict, model_name: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def print_evaluation_results(results: dict, model_name: str):
+    &#34;&#34;&#34;Print evaluation results in a formatted table.
+
+    Args:
+        results: Evaluation results dictionary
+        model_name: Name of the evaluated model
+    &#34;&#34;&#34;
+    console.print(f&#34;\n[bold]{model_name} Evaluation Results[/bold]&#34;)
+    console.print(&#34;=&#34; * 50)
+
+    # Print accuracy and invalid count
+    accuracy = results.get(&#34;accuracy&#34;, 0.0)
+    invalid_count = results.get(&#34;invalid_count&#34;, 0)
+    console.print(f&#34;Accuracy: {accuracy:.4f}&#34;)
+    console.print(f&#34;Invalid Predictions: {invalid_count}\n&#34;)
+
+    # Print classification report if available
+    report = results.get(&#34;classification_report&#34;)
+    if isinstance(report, dict):
+        table = Table(show_header=True, header_style=&#34;bold&#34;)
+        table.add_column(&#34;Class&#34;)
+        table.add_column(&#34;Precision&#34;)
+        table.add_column(&#34;Recall&#34;)
+        table.add_column(&#34;F1-Score&#34;)
+        table.add_column(&#34;Support&#34;)
+
+        for label in [&#34;negative&#34;, &#34;neutral&#34;, &#34;positive&#34;]:
+            metrics = report.get(label, {})
+            table.add_row(
+                label,
+                f&#34;{metrics.get(&#39;precision&#39;, 0.0):.3f}&#34;,
+                f&#34;{metrics.get(&#39;recall&#39;, 0.0):.3f}&#34;,
+                f&#34;{metrics.get(&#39;f1-score&#39;, 0.0):.3f}&#34;,
+                str(int(metrics.get(&#34;support&#34;, 0))),
+            )
+
+        console.print(table)
+    else:
+        console.print(str(report))</code></pre>
+</details>
+<div class="desc"><p>Print evaluation results in a formatted table.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>results</code></strong></dt>
+<dd>Evaluation results dictionary</dd>
+<dt><strong><code>model_name</code></strong></dt>
+<dd>Name of the evaluated model</dd>
+</dl></div>
+</dd>
+<dt id="financial_news_sentiment.cli.run_async"><code class="name flex">
+<span>def <span class="ident">run_async</span></span>(<span>coro)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_async(coro):
+    &#34;&#34;&#34;Run an async function in the event loop.&#34;&#34;&#34;
+    try:
+        return asyncio.run(coro)
+    except KeyboardInterrupt:
+        console.print(&#34;\n[yellow]Operation cancelled by user[/yellow]&#34;)
+        raise typer.Exit(1)</code></pre>
+</details>
+<div class="desc"><p>Run an async function in the event loop.</p></div>
+</dd>
+<dt id="financial_news_sentiment.cli.show_version"><code class="name flex">
+<span>def <span class="ident">show_version</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@app.command(name=&#34;version&#34;)
+def show_version():
+    &#34;&#34;&#34;Show the version of the financial news sentiment analysis system.&#34;&#34;&#34;
+    console.print(f&#34;fins version {__version__}&#34;)</code></pre>
+</details>
+<div class="desc"><p>Show the version of the financial news sentiment analysis system.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="financial_news_sentiment" href="index.html">financial_news_sentiment</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="financial_news_sentiment.cli.analyze" href="#financial_news_sentiment.cli.analyze">analyze</a></code></li>
+<li><code><a title="financial_news_sentiment.cli.callback" href="#financial_news_sentiment.cli.callback">callback</a></code></li>
+<li><code><a title="financial_news_sentiment.cli.evaluate" href="#financial_news_sentiment.cli.evaluate">evaluate</a></code></li>
+<li><code><a title="financial_news_sentiment.cli.load_models" href="#financial_news_sentiment.cli.load_models">load_models</a></code></li>
+<li><code><a title="financial_news_sentiment.cli.main" href="#financial_news_sentiment.cli.main">main</a></code></li>
+<li><code><a title="financial_news_sentiment.cli.print_evaluation_results" href="#financial_news_sentiment.cli.print_evaluation_results">print_evaluation_results</a></code></li>
+<li><code><a title="financial_news_sentiment.cli.run_async" href="#financial_news_sentiment.cli.run_async">run_async</a></code></li>
+<li><code><a title="financial_news_sentiment.cli.show_version" href="#financial_news_sentiment.cli.show_version">show_version</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
