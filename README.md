@@ -84,18 +84,12 @@ graph TB
 
 ## Quick Start
 
-1. Create a configuration file:
-   ```bash
-   cp config.yaml.example config.yaml
-   # Edit config.yaml to set your preferences
-   ```
-
-2. Run model evaluation:
+1. Run model evaluation:
    ```bash
    poetry run fins evaluate --max-samples 100
    ```
 
-3. Analyze live news for a stock:
+2. Analyze live news for a stock:
    ```bash
    poetry run fins analyze-news YELP --max-articles 5
    ```
